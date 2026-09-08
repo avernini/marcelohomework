@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MÉTODO FALA – Casual Greetings & Daily Sentences </title>
+<!-- Tailwind CSS & Phosphor Icons -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          deepBlue: '#0F172A',
+          bodyLight: '#F8FAFC',
+          orangeAction: '#C2410C',
+          orangeHover: '#EA580C',
+          darkSlate: '#334155',
+          softSand: '#F1F5F9',
+          greenSoft: '#E8F8EF',
+          redSoft: '#FDEAEA',
+          amberSoft: '#FEF3D7'
+        }
+      }
+    }
+  }
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
+  body { font-family: 'Inter', sans-serif; }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+  .section { display: none; animation: fadeUp .35s ease; }
+  .section.active { display: block; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .perspective-1000 { perspective: 1000px; }
+  .transform-style-3d { transform-style: preserve-3d; }
+  .backface-hidden { backface-visibility: hidden; }
+  .rotate-y-180 { transform: rotateY(180deg); }
+</style>
+</head>
+<body class="bg-deepBlue text-darkSlate min-h-screen text-[17px] antialiased">
+
+<!-- HEADER FALA -->
+<header class="bg-deepBlue sticky top-0 z-50 border-b border-slate-800 shadow-md">
+  <div class="max-w-[1000px] mx-auto px-6 py-4 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <div class="flex-shrink-0">
+        <button onclick="resetSimulation()" class="cursor-pointer hover:opacity-95 text-left focus:outline-none">
+          <span class="text-white font-bold tracking-wider text-lg mono">MÉTODO <span class="text-orangeAction">FALA</span></span>
+        </button>
+      </div>
+      <div class="h-6 w-[1px] bg-slate-700 hidden sm:block"></div>
+      <div class="hidden sm:block">
+        <h1 class="text-base font-bold text-white tracking-wide">Casual Greetings &amp; First Sentences</h1>
+        <p class="text-xs text-slate-400"> Class 01</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mono" id="progressLabel">Step 1 / 5</span>
+      <div class="w-24 sm:w-32 h-2.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700">
+        <div class="h-full bg-orangeAction rounded-full transition-all duration-300" id="progressFill" style="width:20%"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN WORKSPACE -->
+<div class="bg-bodyLight w-full min-h-[calc(100vh-69px)]">
+  <main class="max-w-[1000px] mx-auto px-6 py-8 pb-24">
+
+    <!-- STEP 1 – SCENARIO WARM-UP & DIALOGUE HOOK (5 QUESTIONS) -->
+    <div class="section active" id="sec1">
+      <span class="inline-block text-xs font-bold tracking-widest text-orangeAction uppercase bg-orange-50 px-3 py-1 rounded-full mb-3 border border-orange-100">Step 1: Scenario Hook &amp; Warm-up (5-8 min)</span>
+      <h2 class="text-3xl font-bold text-deepBlue mb-2 leading-tight">Casual Greetings &amp; Daily Conversation</h2>
+      <p class="text-base text-slate-500 mb-6 leading-relaxed">Welcome to your very first English class! Today we will learn how native speakers actually greet each other using <strong class="text-orangeAction">How's it going?</strong> and <strong class="text-orangeAction">How are you doing?</strong>, plus how to talk about your day using <strong class="text-orangeAction">in the morning, in the afternoon</strong>, and <strong class="text-orangeAction">at night</strong>. Let's start with our warm-up chat:</p>
+
+      <!-- HERO IMAGE BANNER -->
+      <div class="w-full h-56 rounded-2xl overflow-hidden mb-6 shadow-sm border border-slate-200">
+        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1200&q=80" alt="Friends greeting casually" class="w-full h-full object-cover">
+      </div>
+
+      <!-- WARM-UP DISCUSSION BOX (5 QUESTIONS FOR ABSOLUTE BEGINNERS) -->
+      <div class="bg-slate-900 text-white rounded-2xl p-6 shadow-md mb-6 border border-slate-800 space-y-4">
+        <div class="flex items-center gap-2 text-orangeAction font-bold uppercase tracking-wider text-xs font-mono">
+          <i class="ph-bold ph-chats-teardrop text-base animate-pulse"></i> Warm-up Questions (A1 Friendly - 5 Questions to Talk with Your Teacher)
+        </div>
+        <div class="space-y-2 font-mono text-xs sm:text-sm text-slate-200 leading-relaxed">
+          <p>💬 <strong>1.</strong> Quando você encontra um amigo na rua, o que você costuma falar para cumprimentá-lo em português?</p>
+          <p>💬 <strong>2.</strong> Você já conhece alguma palavra em inglês que aparece em filmes (ex: <em>Hello, Bye, OK, Coffee</em>)?</p>
+          <p>💬 <strong>3.</strong> Você toma café de manhã (<em>in the morning</em>) ou prefere à noite (<em>at night</em>)?</p>
+          <p>💬 <strong>4.</strong> Você costuma trabalhar ou estudar <em>in the afternoon</em> (à tarde)?</p>
+          <p>💬 <strong>5.</strong> Se você pudesse estalar os dedos e falar inglês fluentemente amanhã, qual seria a primeira coisa que você faria com essa habilidade?</p>
+        </div>
+      </div>
+
+      <!-- NATURAL DIALOGUE BOX -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-6 space-y-4">
+        <div class="flex items-center justify-between border-b pb-3 text-xs font-mono text-slate-400">
+          <span>NATURAL DIALOGUE · CASUAL GREETINGS</span>
+          <button onclick="playManagerPrompt('sample-dialogue', this)" class="text-orangeAction hover:underline flex items-center gap-1 cursor-pointer"><i class="ph-bold ph-speaker-high"></i> Listen</button>
+        </div>
+        <div id="sample-dialogue" class="text-xs sm:text-sm text-slate-700 leading-relaxed space-y-2 font-medium">
+          <p><strong>Alex:</strong> Hey! <strong>How's it going?</strong></p>
+          <p><strong>Sam:</strong> Hi Alex! Everything is good. <strong>How are you doing?</strong></p>
+          <p><strong>Alex:</strong> I'm great! Do you drink coffee <strong>in the morning</strong>?</p>
+          <p><strong>Sam:</strong> Yes, I do! But I don't drink coffee <strong>at night</strong>.</p>
+        </div>
+      </div>
+
+      <div class="flex justify-end">
+        <button class="bg-orangeAction hover:bg-orangeHover text-white font-semibold px-6 py-2.5 rounded-lg flex items-center gap-2 transition-colors shadow-sm text-sm cursor-pointer" onclick="goTo(2)">Next: Vocabulary Flashcards <i class="ph ph-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- STEP 2 – 10 FLASHCARDS VOCABULARY LAB -->
+    <div class="section" id="sec2">
+      <span class="inline-block text-xs font-bold tracking-widest text-orangeAction uppercase bg-orange-50 px-3 py-1 rounded-full mb-3 border border-orange-100">Step 2: 10-Flashcards Vocabulary Lab (8-10 min)</span>
+      <h2 class="text-2xl font-bold text-deepBlue mb-2">Essential Conversation Vocabulary &amp; Greetings</h2>
+      <p class="text-slate-500 mb-6 text-sm leading-relaxed">Here are 10 key conversational terms and greetings to build your first sentences. Click any card to flip it and explore:</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 mb-6" id="flashcardsGrid">
+        <!-- Rendered dynamically via script -->
+      </div>
+
+      <div class="flex justify-between items-center">
+        <button class="bg-white hover:bg-slate-100 text-deepBlue font-medium px-5 py-2.5 rounded-lg border border-slate-200 flex items-center gap-1.5 transition-colors text-sm cursor-pointer" onclick="goTo(1)"><i class="ph ph-arrow-left"></i> Back</button>
+        <button class="bg-orangeAction hover:bg-orangeHover text-white font-semibold px-6 py-2.5 rounded-lg flex items-center gap-2 transition-colors shadow-sm text-sm cursor-pointer" onclick="goTo(3)">Next: Grammar Calibration <i class="ph ph-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- STEP 3 – GRAMMAR FOCUS (AFFIRMATIVE, NEGATIVE, QUESTION & GREETINGS) -->
+    <div class="section" id="sec3">
+      <span class="inline-block text-xs font-bold tracking-widest text-orangeAction uppercase bg-orange-50 px-3 py-1 rounded-full mb-3 border border-orange-100">Step 3: Grammar Focus (10-12 min)</span>
+      <h2 class="text-2xl font-bold text-deepBlue mb-2">Sentences &amp; Casual Conversation</h2>
+      <p class="text-slate-500 mb-6 text-sm">Let's master how sentences work with everyday habits and how to respond to casual greetings:</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 text-xs">
+        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-2">
+          <span class="font-bold text-emerald-700 block uppercase font-mono tracking-wider text-[10px]">1. Affirmative (+)</span>
+          <p class="text-slate-600 leading-relaxed font-medium">Stating actions:</p>
+          <div class="p-2.5 bg-slate-50 rounded border font-mono text-[11px] text-slate-700 space-y-1">
+            <p>• I work <strong>in the morning</strong>.</p>
+            <p>• I'm doing great, thanks!</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-2">
+          <span class="font-bold text-rose-700 block uppercase font-mono tracking-wider text-[10px]">2. Negative (-)</span>
+          <p class="text-slate-600 leading-relaxed font-medium">Using "don't":</p>
+          <div class="p-2.5 bg-slate-50 rounded border font-mono text-[11px] text-slate-700 space-y-1">
+            <p>• I don't work <strong>at night</strong>.</p>
+            <p>• I don't drink tea.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-2">
+          <span class="font-bold text-sky-700 block uppercase font-mono tracking-wider text-[10px]">3. Question (?)</span>
+          <p class="text-slate-600 leading-relaxed font-medium">Starting with "Do":</p>
+          <div class="p-2.5 bg-slate-50 rounded border font-mono text-[11px] text-slate-700 space-y-1">
+            <p>• <strong>How are you doing?</strong></p>
+            <p>• Do you work <strong>in the afternoon</strong>?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOSSILIZED ERROR GUARD -->
+      <div class="bg-white border border-slate-200 rounded-xl mb-6 shadow-sm overflow-hidden">
+        <div class="bg-deepBlue px-4 py-2 flex items-center gap-2 border-b border-slate-800">
+          <i class="ph ph-shield-warning text-lg text-orangeAction"></i>
+          <span class="text-xs font-bold text-white uppercase font-mono tracking-wide">Fossilized Error Guard (Precision Check)</span>
+        </div>
+        <div class="p-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
+          <div class="bg-rose-50/60 p-3 rounded-lg border border-rose-100">
+            <span class="text-rose-700 font-bold block uppercase text-[10px] mb-1">❌ COMMON MISTAKE</span>
+            <p class="line-through text-slate-500">"How you go?" or "How is going?" (incorrect greeting grammar)</p>
+            <p class="line-through text-slate-500 mt-0.5">"I work in the night." (wrong preposition)</p>
+          </div>
+          <div class="bg-emerald-50/60 p-3 rounded-lg border border-emerald-100">
+            <span class="text-emerald-700 font-bold block uppercase text-[10px] mb-1">🟢 CORRECT STRUCTURE</span>
+            <p class="font-bold text-slate-800">"<strong>How's it going?</strong>" or "<strong>How are you doing?</strong>"</p>
+            <p class="font-bold text-slate-800 mt-0.5">"I work <strong>at night</strong>."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE DRILLS (4 EXERCISES) -->
+      <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm mb-6 space-y-4">
+        <h4 class="text-xs font-bold font-mono text-slate-400 uppercase tracking-wider">Interactive Sentence Training (4 Challenges)</h4>
+        
+        <!-- Drills Q1 -->
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs space-y-1.5" id="g-q-1">
+          <p class="font-semibold text-slate-800">1. "______'s it going?" (Casual Greeting)</p>
+          <div class="flex gap-2">
+            <button onclick="markGrammarDrill(1, 'correct', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">How</button>
+            <button onclick="markGrammarDrill(1, 'wrong', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">What</button>
+          </div>
+          <p class="feedback hidden text-[11px] font-bold"></p>
+        </div>
+
+        <!-- Drills Q2 -->
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs space-y-1.5" id="g-q-2">
+          <p class="font-semibold text-slate-800">2. "How are you ______?"</p>
+          <div class="flex gap-2">
+            <button onclick="markGrammarDrill(2, 'correct', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">doing</button>
+            <button onclick="markGrammarDrill(2, 'wrong', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">going</button>
+          </div>
+          <p class="feedback hidden text-[11px] font-bold"></p>
+        </div>
+
+        <!-- Drills Q3 -->
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs space-y-1.5" id="g-q-3">
+          <p class="font-semibold text-slate-800">3. "I drink coffee ______ the morning."</p>
+          <div class="flex gap-2">
+            <button onclick="markGrammarDrill(3, 'correct', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">in</button>
+            <button onclick="markGrammarDrill(3, 'wrong', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">at</button>
+          </div>
+          <p class="feedback hidden text-[11px] font-bold"></p>
+        </div>
+
+        <!-- Drills Q4 -->
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs space-y-1.5" id="g-q-4">
+          <p class="font-semibold text-slate-800">4. "Do you study ______ night?"</p>
+          <div class="flex gap-2">
+            <button onclick="markGrammarDrill(4, 'correct', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">at</button>
+            <button onclick="markGrammarDrill(4, 'wrong', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">in</button>
+          </div>
+          <p class="feedback hidden text-[11px] font-bold"></p>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <button class="bg-white hover:bg-slate-100 text-deepBlue font-medium px-5 py-2.5 rounded-lg border border-slate-200 flex items-center gap-1.5 transition-colors text-sm cursor-pointer" onclick="goTo(2)"><i class="ph ph-arrow-left"></i> Back</button>
+        <button class="bg-orangeAction hover:bg-orangeHover text-white font-semibold px-6 py-2.5 rounded-lg flex items-center gap-2 transition-colors shadow-sm text-sm cursor-pointer" onclick="goTo(4)">Next: Strategic Case Files <i class="ph ph-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- STEP 4 – STRATEGIC CASE FILES (5 CASES WITH 5 SIMPLE QUESTIONS EACH) -->
+    <div class="section" id="sec4">
+      <span class="inline-block text-xs font-bold tracking-widest text-orangeAction uppercase bg-orange-50 px-3 py-1 rounded-full mb-3 border border-orange-100">Step 4: Strategic Case Files (15-18 min)</span>
+      <h2 class="text-2xl font-bold text-deepBlue mb-2">Conversation Scenarios (Absolute Beginner)</h2>
+      <p class="text-slate-500 mb-6 text-sm">Select one of the 5 scenarios below to load its visual context and practice simple greetings and sentences out loud with your teacher (5 prompts per case):</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-6">
+        <div class="md:col-span-4 space-y-2 flex flex-col">
+          <span class="text-xs font-bold text-slate-400 uppercase font-mono block">Choose Scenario:</span>
+          
+          <button onclick="triggerDilemmaScenario('meeting')" id="btn-scen-meeting" class="w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer">
+            <span class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 border"><img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=200&q=80" alt="" class="w-full h-full object-cover"></span>
+            <div><strong class="text-deepBlue block">1. Casual Meeting</strong><span class="text-slate-400">Saying "How's it going?"</span></div>
+          </button>
+
+          <button onclick="triggerDilemmaScenario('coffee')" id="btn-scen-coffee" class="w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer">
+            <span class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 border"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=200&q=80" alt="" class="w-full h-full object-cover"></span>
+            <div><strong class="text-deepBlue block">2. Coffee Break</strong><span class="text-slate-400">Coffee in the morning</span></div>
+          </button>
+
+          <button onclick="triggerDilemmaScenario('evening')" id="btn-scen-evening" class="w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer">
+            <span class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 border"><img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=200&q=80" alt="" class="w-full h-full object-cover"></span>
+            <div><strong class="text-deepBlue block">3. Evening Time</strong><span class="text-slate-400">Relaxing in the evening</span></div>
+          </button>
+
+          <button onclick="triggerDilemmaScenario('weekend')" id="btn-scen-weekend" class="w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer">
+            <span class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 border"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=200&q=80" alt="" class="w-full h-full object-cover"></span>
+            <div><strong class="text-deepBlue block">4. Weekend Morning</strong><span class="text-slate-400">Free time on weekends</span></div>
+          </button>
+
+          <button onclick="triggerDilemmaScenario('afternoon')" id="btn-scen-afternoon" class="w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer">
+            <span class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 border"><img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=200&q=80" alt="" class="w-full h-full object-cover"></span>
+            <div><strong class="text-deepBlue block">5. Afternoon Work</strong><span class="text-slate-400">Working in the afternoon</span></div>
+          </button>
+
+        </div>
+
+        <div class="md:col-span-8 space-y-4">
+          <div id="dilemma-data-panel" class="hidden rounded-xl bg-white border border-slate-200 text-xs leading-relaxed shadow-sm overflow-hidden">
+            <div class="w-full h-[140px] overflow-hidden"><img id="dilemma-image" src="" alt="" class="w-full h-full object-cover"></div>
+            <div class="p-4">
+              <div class="flex items-center gap-2 mb-2 border-b pb-2">
+                <span id="dilemma-icon" class="text-lg"></span>
+                <strong id="dilemma-title" class="text-deepBlue uppercase tracking-wider font-mono">Scenario Details</strong>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+                <div class="bg-rose-50/40 p-3 rounded-lg border border-rose-100">
+                  <span class="font-bold text-rose-700 block uppercase text-[9px] font-mono mb-1">Situation</span>
+                  <p id="dilemma-pros" class="text-slate-600 font-medium"></p>
+                </div>
+                <div class="bg-emerald-50/40 p-3 rounded-lg border border-emerald-100">
+                  <span class="font-bold text-emerald-700 block uppercase text-[9px] font-mono mb-1">Target Pattern</span>
+                  <p id="dilemma-cons" class="text-slate-600 font-medium"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="teacher-talk-panel" class="hidden p-4 rounded-xl bg-slate-900 border border-slate-800 text-slate-100 text-xs shadow-md">
+            <div class="flex items-center gap-2 text-orangeAction font-bold uppercase tracking-wider text-[10px] mb-2 font-mono">
+              <i class="ph-bold ph-chats-teardrop text-sm animate-pulse"></i> Simple Speaking Practice Prompts (5 Questions)
+            </div>
+            <div id="teacher-questions-box" class="space-y-2 font-mono text-white text-xs leading-relaxed bg-slate-950 p-3 rounded-lg border border-slate-800"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-xl p-4 flex justify-between items-center shadow-sm mb-4">
+        <div class="flex gap-3 items-center">
+          <div class="p-2 bg-slate-100 rounded-lg text-base"><i class="ph ph-check-square text-orangeAction"></i></div>
+          <div>
+            <h4 class="text-xs font-bold text-deepBlue">Conversation Simulation Completed</h4>
+            <p class="text-[11px] text-slate-500">Check this box once you finish practicing the conversation out loud.</p>
+          </div>
+        </div>
+        <label class="flex items-center gap-2 cursor-pointer select-none">
+          <input type="checkbox" id="instr-check" onchange="unlockStep5()" class="rounded border-slate-300 text-orangeAction focus:ring-orangeAction w-4 h-4 cursor-pointer">
+          <span class="text-xs font-bold text-slate-600 uppercase">Confirmed</span>
+        </label>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <button class="bg-white hover:bg-slate-100 text-deepBlue font-medium px-5 py-2.5 rounded-lg border border-slate-200 flex items-center gap-1.5 transition-colors text-sm cursor-pointer" onclick="goTo(3)"><i class="ph ph-arrow-left"></i> Back</button>
+        <button id="btn-to-step5" class="bg-orangeAction hover:bg-orangeHover text-white font-semibold px-6 py-2.5 rounded-lg hidden items-center gap-2 transition-colors shadow-sm text-sm cursor-pointer" onclick="goTo(5)">Next: Voice Studio <i class="ph ph-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- STEP 5 – VOICE PRODUCTION STUDIO -->
+    <div class="section" id="sec5">
+      <span class="inline-block text-xs font-bold tracking-widest text-emerald-700 uppercase bg-emerald-50 px-3 py-1 rounded-full mb-3 border border-emerald-100">Step 5: Voice Studio (10-15 min)</span>
+      <h2 class="text-2xl font-bold text-deepBlue mb-2">Audio Production &amp; Performance Audit</h2>
+      <p class="text-sm text-slate-500 mb-4">Listen to the native audio prompt and record your own voice greeting someone and talking about your day.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-6">
+        <div class="md:col-span-5 bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-2">
+          <div class="flex items-center justify-between border-b pb-1">
+            <span class="text-[10px] font-bold text-slate-400 font-mono">AUDIO PROMPT</span>
+            <div class="flex items-center gap-1">
+              <button onclick="playManagerPrompt('tts-script', this)" class="w-6 h-6 bg-orangeAction/10 text-orangeAction rounded hover:bg-orangeAction/20 text-xs flex items-center justify-center transition-colors cursor-pointer"><i class="ph-bold ph-play"></i></button>
+              <button onclick="pauseManagerPrompt()" class="w-6 h-6 bg-slate-100 text-slate-600 rounded hover:bg-slate-200 text-xs flex items-center justify-center transition-colors cursor-pointer"><i class="ph-bold ph-pause"></i></button>
+            </div>
+          </div>
+          <p id="tts-script" class="text-xs text-slate-700 bg-slate-50 p-3 rounded border-l-3 border-orangeAction italic font-medium leading-relaxed">
+            "Hey! How's it going? I'm doing great. I drink coffee in the morning, but I don't work at night."
+          </p>
+        </div>
+
+        <div class="md:col-span-7 bg-white border border-slate-200 rounded-xl p-4 shadow-sm flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-mono font-bold text-slate-400 block mb-2">Microphone Controller</span>
+            <div class="p-3 bg-slate-900 rounded-lg text-center font-mono text-xs space-y-1 mb-2">
+              <div class="text-slate-400 uppercase text-[9px]">Status</div>
+              <p id="audio-status-label" class="text-orangeAction font-bold">Ready to Record</p>
+            </div>
+            <div class="flex items-center justify-center gap-3 py-1">
+              <button id="record-master-btn" onclick="handleRecordTrigger()" class="w-10 h-10 rounded-full bg-orangeAction hover:bg-orangeHover text-white flex items-center justify-center shadow focus:outline-none transition-all cursor-pointer">
+                <i id="record-master-icon" class="ph-bold ph-microphone text-lg"></i>
+              </button>
+              <button id="pause-master-btn" onclick="handlePauseTrigger()" class="w-8 h-8 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center border cursor-not-allowed focus:outline-none transition-all" disabled>
+                <i class="ph-bold ph-pause text-sm"></i>
+              </button>
+              <button id="reset-master-btn" onclick="handleResetTrigger()" class="w-8 h-8 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center border cursor-not-allowed focus:outline-none transition-all" disabled>
+                <i class="ph-bold ph-arrows-counter-clockwise text-sm"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="p-2.5 bg-softSand rounded-lg border text-xs">
+            <span class="text-[10px] font-bold text-slate-400 uppercase block font-mono mb-1">Listen to your recording:</span>
+            <div class="flex items-center gap-2">
+              <audio id="student-playback" controls class="w-full h-8 outline-none" style="display:none;"></audio>
+              <p id="playback-placeholder" class="text-[11px] italic text-slate-400">Your audio recording will appear here after stopping.</p>
+            </div>
+          </div>
+
+          <div class="pt-2 border-t border-slate-100 text-xs font-mono space-y-2">
+            <span class="text-orangeAction font-bold block uppercase text-[9px]">Self-Assessment Checklist</span>
+            <div class="space-y-1 font-sans text-slate-600">
+              <label class="flex items-start gap-2 cursor-pointer select-none">
+                <input type="checkbox" id="chk-eval-1" onchange="calculateOralScore()" class="mt-0.5 rounded text-orangeAction focus:ring-orangeAction w-3.5 h-3.5 cursor-pointer">
+                <span>I used "How's it going?" or "How are you doing?" naturally.</span>
+              </label>
+              <label class="flex items-start gap-2 cursor-pointer select-none">
+                <input type="checkbox" id="chk-eval-2" onchange="calculateOralScore()" class="mt-0.5 rounded text-orangeAction focus:ring-orangeAction w-3.5 h-3.5 cursor-pointer">
+                <span>My pronunciation of daily times and sentences was clear.</span>
+              </label>
+            </div>
+            <div>
+              <div class="flex justify-between text-[10px] font-bold text-slate-400 mb-0.5">
+                <span>FLUENCY SCORE</span>
+                <span id="oral-score-lbl">0%</span>
+              </div>
+              <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                <div id="oral-bar-fill" class="bg-orangeAction h-full transition-all duration-300" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-slate-900 text-white rounded-xl p-5 text-center shadow-md border border-slate-800">
+        <h4 class="text-sm font-bold mb-1 font-mono uppercase tracking-wider text-orangeAction">Save Learning Progress</h4>
+        <p class="text-xs text-slate-400 mb-4 leading-relaxed">Ready to complete today's session?</p>
+        <button onclick="alert('Session completed successfully! Great job on your casual conversation class!')" class="inline-flex items-center gap-2 bg-white hover:bg-slate-100 text-deepBlue text-xs font-bold uppercase px-5 py-2.5 rounded-lg transition-all shadow font-mono cursor-pointer">
+          Finish Lesson <i class="ph ph-check"></i>
+        </button>
+      </div>
+
+      <div class="flex justify-start mt-4">
+        <button class="bg-white hover:bg-slate-100 text-deepBlue font-medium px-5 py-2.5 rounded-lg border border-slate-200 flex items-center gap-1.5 transition-colors text-sm cursor-pointer" onclick="goTo(4)"><i class="ph ph-arrow-left"></i> Back</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- SCRIPT LOGIC -->
+<script>
+let currentSection = 1;
+let managerTtsInstance = null;
+let mediaRecorderInstance = null;
+let audioChunksBuffer = [];
+
+// 10 CONVERSATION VOCABULARY FLASHCARDS (GREETINGS, TIMES & DAILY ACTIONS)
+const flashcardsData = [
+  { 
+    en: "How's it going?", 
+    def: "A very common casual greeting meaning 'How are you?'.", 
+    ex: "Hey! How's it going?",
+    img: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=400&q=80"
+  },
+  { 
+    en: "How are you doing?", 
+    def: "A friendly and natural way to ask how someone is.", 
+    ex: "Hi there! How are you doing today?",
+    img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80"
+  },
+  { 
+    en: "In the morning", 
+    def: "The early part of the day, before noon.", 
+    ex: "I drink coffee in the morning.",
+    img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+  },
+  { 
+    en: "In the afternoon", 
+    def: "The period from noon until evening.", 
+    ex: "I work in the afternoon.",
+    img: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=400&q=80"
+  },
+  { 
+    en: "In the evening", 
+    def: "The later part of the day before night.", 
+    ex: "We relax in the evening.",
+    img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=400&q=80"
+  },
+  { 
+    en: "At night", 
+    def: "The dark hours of the day when people sleep.", 
+    ex: "I don't work at night.",
+    img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=400&q=80"
+  },
+  { 
+    en: "Coffee", 
+    def: "A popular hot morning drink.", 
+    ex: "I like coffee in the morning.",
+    img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80"
+  },
+  { 
+    en: "Water", 
+    def: "The essential drink for everyday life.", 
+    ex: "Do you want water?",
+    img: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=400&q=80"
+  },
+  { 
+    en: "Work", 
+    def: "Activity done for a job or occupation.", 
+    ex: "I work in the afternoon.",
+    img: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=400&q=80"
+  },
+  { 
+    en: "Friend", 
+    def: "A person you know well and like.", 
+    ex: "You are my friend.",
+    img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=400&q=80"
+  }
+];
+
+// Render Flashcards
+function renderFlashcards() {
+  const grid = document.getElementById('flashcardsGrid');
+  grid.innerHTML = '';
+  flashcardsData.forEach((card, idx) => {
+    let wrapper = document.createElement('div');
+    wrapper.className = "perspective-1000 w-full h-64 cursor-pointer";
+    wrapper.onclick = function() {
+      this.querySelector('.card-inner').classList.toggle('rotate-y-180');
+    };
+
+    wrapper.innerHTML = `
+      <div class="card-inner relative w-full h-full duration-500 transform-style-3d shadow-sm rounded-xl">
+        <!-- FRONT -->
+        <div class="absolute inset-0 w-full h-full bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col justify-between backface-hidden">
+          <div class="h-28 w-full overflow-hidden">
+            <img src="${card.img}" alt="${card.en}" class="w-full h-full object-cover">
+          </div>
+          <div class="p-3 flex flex-col justify-between flex-1">
+            <div class="flex items-center justify-between">
+              <span class="text-[9px] font-mono text-slate-400 uppercase">#${idx+1} · Click</span>
+              <button onclick="event.stopPropagation(); audioSpeak('${card.en}')" class="w-6 h-6 rounded-full bg-orange-50 text-orangeAction flex items-center justify-center hover:bg-orangeAction hover:text-white transition-colors cursor-pointer">
+                <i class="ph-bold ph-speaker-high text-xs"></i>
+              </button>
+            </div>
+            <div class="text-center">
+              <h4 class="text-deepBlue font-mono font-bold text-xs">${card.en}</h4>
+            </div>
+          </div>
+        </div>
+        <!-- BACK -->
+        <div class="absolute inset-0 w-full h-full bg-deepBlue text-white rounded-xl p-4 flex flex-col justify-between backface-hidden rotate-y-180">
+          <div class="flex items-center justify-between">
+            <span class="text-[9px] font-mono text-orangeAction uppercase">Vocabulary &amp; Usage</span>
+            <span class="text-[9px] font-mono text-slate-400">Level A1.0</span>
+          </div>
+          <div class="space-y-1.5 text-left">
+            <p class="text-[11px] text-slate-200 leading-snug"><strong>Meaning:</strong> ${card.def}</p>
+            <p class="text-[11px] text-orange-300 italic leading-snug"><strong>Ex:</strong> "${card.ex}"</p>
+          </div>
+          <div class="text-center">
+            <span class="text-[9px] text-slate-400 italic">Back Side</span>
+          </div>
+        </div>
+      </div>
+    `;
+    grid.appendChild(wrapper);
+  });
+}
+document.addEventListener('DOMContentLoaded', renderFlashcards);
+
+// AUDIO PRONUNCIATION
+function audioSpeak(word) {
+  window.speechSynthesis.cancel();
+  const tts = new SpeechSynthesisUtterance(word);
+  tts.lang = 'en-US';
+  tts.rate = 0.80; // Slower for absolute beginners
+  window.speechSynthesis.speak(tts);
+}
+
+// GRAMMAR DRILLS
+function markGrammarDrill(qNum, status, btn) {
+  const row = document.getElementById('g-q-' + qNum);
+  const fb = row.querySelector('.feedback');
+  fb.classList.remove('hidden');
+  row.querySelectorAll('button').forEach(b => b.className = "bg-white border px-3 py-1.5 rounded-lg text-slate-700 font-medium text-xs border-slate-200 hover:bg-slate-50 transition-all cursor-pointer");
+
+  if (status === 'correct') {
+    btn.className = "bg-emerald-50 border border-emerald-400 text-emerald-800 font-semibold px-3 py-1.5 rounded-lg text-xs";
+    fb.className = "feedback text-[11px] font-bold text-emerald-600 mt-1";
+    fb.textContent = "✓ Correct! Great job!";
+  } else {
+    btn.className = "bg-rose-50 border border-rose-400 text-rose-800 font-semibold px-3 py-1.5 rounded-lg text-xs";
+    fb.className = "feedback text-[11px] font-bold text-rose-600 mt-1";
+    fb.textContent = "✗ Incorrect. Try again.";
+  }
+}
+
+// SCENARIOS (5 BEGINNER-FRIENDLY CASES WITH 5 SIMPLE QUESTIONS EACH)
+const dilemmaScenariosData = {
+  meeting: {
+    icon: "🤝",
+    title: "1. Casual Meeting",
+    image: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1000&q=80",
+    pros: "Practicing casual greetings like 'How's it going?'",
+    cons: "Target Pattern: 'Hey! How's it going? / I'm doing great.'",
+    questions: [
+      "➔ Prompt 1: Teacher says 'Hello! How's it going?' — Student answers 'Good, thanks!'",
+      "➔ Prompt 2: Teacher asks 'How are you doing?' — Student answers 'I'm great!'",
+      "➔ Prompt 3: Student asks teacher 'And you?'",
+      "➔ Prompt 4: Teacher says 'I'm fine too.'",
+      "➔ Prompt 5: Student says 'Nice to meet you!'"
+    ],
+    btnId: "btn-scen-meeting"
+  },
+  coffee: {
+    icon: "☕",
+    title: "2. Coffee Break",
+    image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=80",
+    pros: "Talking about morning habits and coffee.",
+    cons: "Target Pattern: 'I like coffee in the morning.'",
+    questions: [
+      "➔ Prompt 1: Teacher asks 'Do you like coffee?' — Student answers 'Yes, I do.'",
+      "➔ Prompt 2: Teacher asks 'Do you drink coffee in the morning?' — Student answers 'Yes, in the morning.'",
+      "➔ Prompt 3: Student asks teacher 'Do you like coffee?'",
+      "➔ Prompt 4: Teacher answers 'Yes, I love coffee.'",
+      "➔ Prompt 5: Student says 'Me too!'"
+    ],
+    btnId: "btn-scen-coffee"
+  },
+  evening: {
+    icon: "🌙",
+    title: "3. Evening Time",
+    image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1000&q=80",
+    pros: "Talking about what you do in the evening.",
+    cons: "Target Pattern: 'I relax in the evening.'",
+    questions: [
+      "➔ Prompt 1: Teacher asks 'Do you work at night?' — Student answers 'No, I don't work at night.'",
+      "➔ Prompt 2: Teacher asks 'Do you relax in the evening?' — Student answers 'Yes, I relax in the evening.'",
+      "➔ Prompt 3: Student asks teacher 'Do you work at night?'",
+      "➔ Prompt 4: Teacher answers 'No, I don't.'",
+      "➔ Prompt 5: Student says 'Good night!'"
+    ],
+    btnId: "btn-scen-evening"
+  },
+  weekend: {
+    icon: "🌴",
+    title: "4. Weekend Morning",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80",
+    pros: "Discussing free time on weekends.",
+    cons: "Target Pattern: 'I stay home on weekends.'",
+    questions: [
+      "➔ Prompt 1: Teacher asks 'Do you work on weekends?' — Student answers 'No, I don't.'",
+      "➔ Prompt 2: Teacher asks 'Do you stay home in the morning?' — Student answers 'Yes, I stay home.'",
+      "➔ Prompt 3: Student asks teacher 'Do you like weekends?'",
+      "➔ Prompt 4: Teacher answers 'Yes, I love weekends.'",
+      "➔ Prompt 5: Student says 'Me too!'"
+    ],
+    btnId: "btn-scen-weekend"
+  },
+  afternoon: {
+    icon: "💻",
+    title: "5. Afternoon Work",
+    image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1000&q=80",
+    pros: "Talking about afternoon routine.",
+    cons: "Target Pattern: 'I work in the afternoon.'",
+    questions: [
+      "➔ Prompt 1: Teacher asks 'Do you work in the afternoon?' — Student answers 'Yes, I work in the afternoon.'",
+      "➔ Prompt 2: Teacher asks 'Do you study?' — Student answers 'No, I don't study.'",
+      "➔ Prompt 3: Student asks teacher 'Do you work?'",
+      "➔ Prompt 4: Teacher answers 'Yes, I do.'",
+      "➔ Prompt 5: Student says 'Okay, great!'"
+    ],
+    btnId: "btn-scen-afternoon"
+  }
+};
+
+function triggerDilemmaScenario(key) {
+  const data = dilemmaScenariosData[key];
+  document.querySelectorAll('[id^="btn-scen-"]').forEach(b => {
+    b.className = "w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer";
+  });
+  document.getElementById(data.btnId).className = "w-full text-left bg-orangeAction border border-orangeAction text-white p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all font-semibold shadow-sm cursor-pointer";
+
+  document.getElementById('dilemma-data-panel').classList.remove('hidden');
+  document.getElementById('teacher-talk-panel').classList.remove('hidden');
+
+  document.getElementById('dilemma-image').src = data.image;
+  document.getElementById('dilemma-icon').textContent = data.icon;
+  document.getElementById('dilemma-title').textContent = data.title;
+  document.getElementById('dilemma-pros').textContent = data.pros;
+  document.getElementById('dilemma-cons').textContent = data.cons;
+
+  const qBox = document.getElementById('teacher-questions-box');
+  qBox.innerHTML = data.questions.map(q => `<p class="font-medium p-1">${q}</p>`).join('');
+  document.getElementById('dilemma-data-panel').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function unlockStep5() {
+  const checked = document.getElementById('instr-check').checked;
+  const btn = document.getElementById('btn-to-step5');
+  if (checked) {
+    btn.classList.remove('hidden');
+    btn.classList.add('inline-flex');
+  } else {
+    btn.classList.add('hidden');
+    btn.classList.remove('inline-flex');
+  }
+}
+
+// RECORDING LOGIC
+async function handleRecordTrigger() {
+  const statusLabel = document.getElementById('audio-status-label');
+  const recBtn = document.getElementById('record-master-btn');
+  const recIcon = document.getElementById('record-master-icon');
+  const pauseBtn = document.getElementById('pause-master-btn');
+  const resetBtn = document.getElementById('reset-master-btn');
+
+  if (!mediaRecorderInstance) {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      mediaRecorderInstance = new MediaRecorder(stream);
+      audioChunksBuffer = [];
+      mediaRecorderInstance.ondataavailable = (e) => { if (e.data.size > 0) audioChunksBuffer.push(e.data); };
+      mediaRecorderInstance.onstop = () => {
+        const audioBlob = new Blob(audioChunksBuffer, { type: 'audio/mp3' });
+        const player = document.getElementById('student-playback');
+        player.src = URL.createObjectURL(audioBlob);
+        player.style.display = 'block';
+        document.getElementById('playback-placeholder').style.display = 'none';
+      };
+      mediaRecorderInstance.start();
+      statusLabel.textContent = "🎙️ RECORDING... Speak now!";
+      statusLabel.className = "text-red-500 font-bold tracking-wide";
+      recBtn.className = "w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow focus:outline-none transition-all cursor-pointer";
+      recIcon.className = "ph-bold ph-check text-lg";
+      pauseBtn.disabled = false;
+      pauseBtn.className = "w-8 h-8 rounded-full bg-white text-slate-700 flex items-center justify-center border hover:bg-slate-50 focus:outline-none transition-all cursor-pointer";
+      resetBtn.disabled = false;
+      resetBtn.className = "w-8 h-8 rounded-full bg-white text-slate-700 flex items-center justify-center border hover:bg-slate-50 focus:outline-none transition-all cursor-pointer";
+    } catch (err) {
+      alert("Microphone access denied.");
+    }
+  } else if (mediaRecorderInstance.state === "paused") {
+    mediaRecorderInstance.resume();
+    statusLabel.textContent = "🎙️ RECORDING...";
+    statusLabel.className = "text-red-500 font-bold tracking-wide";
+    recIcon.className = "ph-bold ph-check text-lg";
+  } else if (mediaRecorderInstance.state === "recording") {
+    mediaRecorderInstance.stop();
+    mediaRecorderInstance.stream.getTracks().forEach(t => t.stop());
+    statusLabel.textContent = "🏆 AUDIO CAPTURED · Listen below";
+    statusLabel.className = "text-emerald-600 font-bold tracking-wide";
+    recBtn.disabled = true;
+    recBtn.className = "w-10 h-10 rounded-full bg-slate-200 text-slate-400 flex items-center justify-center border cursor-not-allowed";
+    pauseBtn.disabled = true;
+    pauseBtn.className = "w-8 h-8 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center border cursor-not-allowed";
+  }
+}
+
+function handlePauseTrigger() {
+  const lbl = document.getElementById('audio-status-label');
+  const icon = document.getElementById('record-master-icon');
+  if (mediaRecorderInstance && mediaRecorderInstance.state === "recording") {
+    mediaRecorderInstance.pause();
+    lbl.textContent = "⏸️ PAUSED · Click record to resume.";
+    lbl.className = "text-amber-600 font-bold tracking-wide";
+    icon.className = "ph-bold ph-play text-lg";
+  }
+}
+
+function handleResetTrigger() {
+  if (mediaRecorderInstance) {
+    mediaRecorderInstance.stop();
+    mediaRecorderInstance.stream.getTracks().forEach(t => t.stop());
+    mediaRecorderInstance = null;
+  }
+  audioChunksBuffer = [];
+  const lbl = document.getElementById('audio-status-label');
+  const btn = document.getElementById('record-master-btn');
+  const icon = document.getElementById('record-master-icon');
+  const pBtn = document.getElementById('pause-master-btn');
+  const rBtn = document.getElementById('reset-master-btn');
+  const player = document.getElementById('student-playback');
+
+  lbl.textContent = "Ready to Record";
+  lbl.className = "text-orangeAction font-bold tracking-wide";
+  btn.disabled = false;
+  btn.className = "w-10 h-10 rounded-full bg-orangeAction hover:bg-orangeHover text-white flex items-center justify-center shadow focus:outline-none transition-all cursor-pointer";
+  icon.className = "ph-bold ph-microphone text-lg";
+  pBtn.disabled = true;
+  pBtn.className = "w-8 h-8 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center border cursor-not-allowed";
+  rBtn.disabled = true;
+  rBtn.className = "w-8 h-8 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center border cursor-not-allowed";
+  player.src = "";
+  player.style.display = 'none';
+  document.getElementById('playback-placeholder').style.display = 'block';
+}
+
+function calculateOralScore() {
+  let score = 0;
+  if (document.getElementById('chk-eval-1').checked) score += 50;
+  if (document.getElementById('chk-eval-2').checked) score += 50;
+  document.getElementById('oral-score-lbl').textContent = score + "%";
+  document.getElementById('oral-bar-fill').style.width = score + "%";
+}
+
+function playManagerPrompt(id, btn) {
+  window.speechSynthesis.cancel();
+  const script = document.getElementById(id).textContent;
+  managerTtsInstance = new SpeechSynthesisUtterance(script);
+  managerTtsInstance.lang = 'en-US';
+  managerTtsInstance.rate = 0.80;
+  managerTtsInstance.onend = () => { btn.innerHTML = '<i class="ph-bold ph-play"></i>'; };
+  window.speechSynthesis.speak(managerTtsInstance);
+}
+
+function pauseManagerPrompt() {
+  if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) window.speechSynthesis.pause();
+  else if (window.speechSynthesis.paused) window.speechSynthesis.resume();
+}
+
+function goTo(n) {
+  document.getElementById('sec' + currentSection).classList.remove('active');
+  currentSection = n;
+  document.getElementById('sec' + n).classList.add('active');
+  document.getElementById('progressFill').style.width = (n * 20) + '%';
+  document.getElementById('progressLabel').textContent = 'Step ' + n + ' / 5';
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function resetSimulation() {
+  location.reload();
+}
+</script>
+</body>
+</html>

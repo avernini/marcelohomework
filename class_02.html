@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MÉTODO FALA – Work Routine &amp; Wh- Questions (Class 02)</title>
+<!-- Tailwind CSS & Phosphor Icons -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          deepBlue: '#0F172A',
+          bodyLight: '#F8FAFC',
+          orangeAction: '#C2410C',
+          orangeHover: '#EA580C',
+          darkSlate: '#334155',
+          softSand: '#F1F5F9',
+          greenSoft: '#E8F8EF',
+          redSoft: '#FDEAEA',
+          amberSoft: '#FEF3D7'
+        }
+      }
+    }
+  }
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
+  body { font-family: 'Inter', sans-serif; }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+  .section { display: none; animation: fadeUp .35s ease; }
+  .section.active { display: block; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .perspective-1000 { perspective: 1000px; }
+  .transform-style-3d { transform-style: preserve-3d; }
+  .backface-hidden { backface-visibility: hidden; }
+  .rotate-y-180 { transform: rotateY(180deg); }
+</style>
+</head>
+<body class="bg-deepBlue text-darkSlate min-h-screen text-[17px] antialiased">
+
+<!-- HEADER FALA -->
+<header class="bg-deepBlue sticky top-0 z-50 border-b border-slate-800 shadow-md">
+  <div class="max-w-[1000px] mx-auto px-6 py-4 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <div class="flex-shrink-0">
+        <button onclick="resetSimulation()" class="cursor-pointer hover:opacity-95 text-left focus:outline-none">
+          <span class="text-white font-bold tracking-wider text-lg mono">MÉTODO <span class="text-orangeAction">FALA</span></span>
+        </button>
+      </div>
+      <div class="h-6 w-[1px] bg-slate-700 hidden sm:block"></div>
+      <div class="hidden sm:block">
+        <h1 class="text-base font-bold text-white tracking-wide">Work Routine &amp; Wh- Questions</h1>
+        <p class="text-xs text-slate-400">Class 02 · Professional &amp; Personal Background (Action Verbs Only)</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mono" id="progressLabel">Step 1 / 5</span>
+      <div class="w-24 sm:w-32 h-2.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700">
+        <div class="h-full bg-orangeAction rounded-full transition-all duration-300" id="progressFill" style="width:20%"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN WORKSPACE -->
+<div class="bg-bodyLight w-full min-h-[calc(100vh-69px)]">
+  <main class="max-w-[1000px] mx-auto px-6 py-8 pb-24">
+
+    <!-- STEP 1 – WARM-UP & SCENARIO HOOK -->
+    <div class="section active" id="sec1">
+      <span class="inline-block text-xs font-bold tracking-widest text-orangeAction uppercase bg-orange-50 px-3 py-1 rounded-full mb-3 border border-orange-100">Step 1: Scenario Hook &amp; Warm-up (5-8 min)</span>
+      <h2 class="text-3xl font-bold text-deepBlue mb-2 leading-tight">Asking Questions with DO (I, You, We, They)</h2>
+      <p class="text-base text-slate-500 mb-6 leading-relaxed">Now that you know how to greet people and talk about your day, let's learn how to ask questions about work routines using <strong class="text-orangeAction">Where, What</strong> and <strong class="text-orangeAction">When</strong> with the helper word <strong class="text-orangeAction">do</strong>. Let's start with our warm-up discussion:</p>
+
+      <!-- HERO IMAGE BANNER -->
+      <div class="w-full h-56 rounded-2xl overflow-hidden mb-6 shadow-sm border border-slate-200">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="Professionals networking and talking" class="w-full h-full object-cover">
+      </div>
+
+      <!-- WARM-UP DISCUSSION BOX (5 QUESTIONS) -->
+      <div class="bg-slate-900 text-white rounded-2xl p-6 shadow-md mb-6 border border-slate-800 space-y-4">
+        <div class="flex items-center gap-2 text-orangeAction font-bold uppercase tracking-wider text-xs font-mono">
+          <i class="ph-bold ph-chats-teardrop text-base animate-pulse"></i> Warm-up Questions (5 Reflection Prompts to Discuss with Your Teacher)
+        </div>
+        <div class="space-y-2.5 font-mono text-xs sm:text-sm text-slate-200 leading-relaxed">
+          <p>💬 <strong>1.</strong> Onde você trabalha todos os dias?</p>
+          <p>💬 2. O que você faz no seu trabalho?</p>
+          <p>💬 <strong>3.</strong> Quando você começa a trabalhar?</p>
+          <p>💬 <strong>4.</strong> Onde você mora?</p>
+          <p>💬 <strong>5.</strong> Você trabalha sozinho ou com outras pessoas?</p>
+        </div>
+      </div>
+
+      <!-- NATURAL DIALOGUE BOX -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-6 space-y-4">
+        <div class="flex items-center justify-between border-b pb-3 text-xs font-mono text-slate-400">
+          <span>NATURAL DIALOGUE · WORK &amp; ROUTINE</span>
+          <button onclick="playManagerPrompt('sample-dialogue', this)" class="text-orangeAction hover:underline flex items-center gap-1 cursor-pointer"><i class="ph-bold ph-speaker-high"></i> Listen</button>
+        </div>
+        <div id="sample-dialogue" class="text-xs sm:text-sm text-slate-700 leading-relaxed space-y-2 font-medium">
+          <p><strong>Alex:</strong> Hi! <strong>Where do you work?</strong></p>
+          <p><strong>Sam:</strong> I work in an office. And <strong>what do you do?</strong></p>
+          <p><strong>Alex:</strong> I work with computers. <strong>When do you start</strong> your day?</p>
+          <p><strong>Sam:</strong> I start at 8:00 AM.</p>
+        </div>
+      </div>
+
+      <div class="flex justify-end">
+        <button class="bg-orangeAction hover:bg-orangeHover text-white font-semibold px-6 py-2.5 rounded-lg flex items-center gap-2 transition-colors shadow-sm text-sm cursor-pointer" onclick="goTo(2)">Next: Vocabulary Flashcards <i class="ph ph-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- STEP 2 – 10 FLASHCARDS VOCABULARY LAB -->
+    <div class="section" id="sec2">
+      <span class="inline-block text-xs font-bold tracking-widest text-orangeAction uppercase bg-orange-50 px-3 py-1 rounded-full mb-3 border border-orange-100">Step 2: 10-Flashcards Vocabulary Lab (8-10 min)</span>
+      <h2 class="text-2xl font-bold text-deepBlue mb-2">Wh- Questions &amp; Action Verbs</h2>
+      <p class="text-slate-500 mb-6 text-sm leading-relaxed">Here are 10 key words and question starters using action verbs (no 'to be'). Click any card to flip it:</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 mb-6" id="flashcardsGrid">
+        <!-- Rendered dynamically via script -->
+      </div>
+
+      <div class="flex justify-between items-center">
+        <button class="bg-white hover:bg-slate-100 text-deepBlue font-medium px-5 py-2.5 rounded-lg border border-slate-200 flex items-center gap-1.5 transition-colors text-sm cursor-pointer" onclick="goTo(1)"><i class="ph ph-arrow-left"></i> Back</button>
+        <button class="bg-orangeAction hover:bg-orangeHover text-white font-semibold px-6 py-2.5 rounded-lg flex items-center gap-2 transition-colors shadow-sm text-sm cursor-pointer" onclick="goTo(3)">Next: Grammar Calibration <i class="ph ph-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- STEP 3 – GRAMMAR FOCUS (WH- QUESTIONS & ACTION VERBS WITH DO) -->
+    <div class="section" id="sec3">
+      <span class="inline-block text-xs font-bold tracking-widest text-orangeAction uppercase bg-orange-50 px-3 py-1 rounded-full mb-3 border border-orange-100">Step 3: Grammar Focus (10-12 min)</span>
+      <h2 class="text-2xl font-bold text-deepBlue mb-2">Asking Questions with DO (I, You, We, They)</h2>
+      <p class="text-slate-500 mb-6 text-sm">When using action verbs, we use the helper word <strong class="text-orangeAction">do</strong> for pronouns <strong class="text-orangeAction">I, you, we, they</strong>:</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 text-xs">
+        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-2">
+          <span class="font-bold text-orangeAction block uppercase font-mono tracking-wider text-[10px]">Structure: Wh- + DO + (I/you/we/they) + Verb?</span>
+          <p class="text-slate-600 leading-relaxed font-medium">Building routine questions:</p>
+          <div class="p-2.5 bg-slate-50 rounded border font-mono text-[11px] text-slate-700 space-y-1">
+            <p>• Where <strong>do</strong> you work?</p>
+            <p>• What <strong>do</strong> you do?</p>
+            <p>• When <strong>do</strong> we start?</p>
+            <p>• Where <strong>do</strong> they live?</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-2">
+          <span class="font-bold text-emerald-700 block uppercase font-mono tracking-wider text-[10px]">Answering with Action Verbs</span>
+          <p class="text-slate-600 leading-relaxed font-medium">Responding directly:</p>
+          <div class="p-2.5 bg-slate-50 rounded border font-mono text-[11px] text-slate-700 space-y-1">
+            <p>• I <strong>work</strong> downtown.</p>
+            <p>• We <strong>start</strong> at 9 AM.</p>
+            <p>• They <strong>live</strong> in São Paulo.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOSSILIZED ERROR GUARD -->
+      <div class="bg-white border border-slate-200 rounded-xl mb-6 shadow-sm overflow-hidden">
+        <div class="bg-deepBlue px-4 py-2 flex items-center gap-2 border-b border-slate-800">
+          <i class="ph ph-shield-warning text-lg text-orangeAction"></i>
+          <span class="text-xs font-bold text-white uppercase font-mono tracking-wide">Fossilized Error Guard (Precision Check)</span>
+        </div>
+        <div class="p-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
+          <div class="bg-rose-50/60 p-3 rounded-lg border border-rose-100">
+            <span class="text-rose-700 font-bold block uppercase text-[10px] mb-1">❌ COMMON MISTAKE</span>
+            <p class="line-through text-slate-500">"Where you work?" (forgetting the helper word 'do')</p>
+            <p class="line-through text-slate-500 mt-0.5">"Where are you work?" (mixing action verbs with 'to be')</p>
+          </div>
+          <div class="bg-emerald-50/60 p-3 rounded-lg border border-emerald-100">
+            <span class="text-emerald-700 font-bold block uppercase text-[10px] mb-1">🟢 CORRECT STRUCTURE</span>
+            <p class="font-bold text-slate-800">"Where <strong>do</strong> you work?"</p>
+            <p class="font-bold text-slate-800 mt-0.5">"What <strong>do</strong> you do?"</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE DRILLS (4 EXERCISES) -->
+      <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm mb-6 space-y-4">
+        <h4 class="text-xs font-bold font-mono text-slate-400 uppercase tracking-wider">Interactive Grammar Training (4 Challenges)</h4>
+        
+        <!-- Drills Q1 -->
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs space-y-1.5" id="g-q-1">
+          <p class="font-semibold text-slate-800">1. "______ do you work?" (Asking for location)</p>
+          <div class="flex gap-2">
+            <button onclick="markGrammarDrill(1, 'correct', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">Where</button>
+            <button onclick="markGrammarDrill(1, 'wrong', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">What</button>
+          </div>
+          <p class="feedback hidden text-[11px] font-bold"></p>
+        </div>
+
+        <!-- Drills Q2 -->
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs space-y-1.5" id="g-q-2">
+          <p class="font-semibold text-slate-800">2. "Where ______ you work?"</p>
+          <div class="flex gap-2">
+            <button onclick="markGrammarDrill(2, 'correct', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">do</button>
+            <button onclick="markGrammarDrill(2, 'wrong', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">are</button>
+          </div>
+          <p class="feedback hidden text-[11px] font-bold"></p>
+        </div>
+
+        <!-- Drills Q3 -->
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs space-y-1.5" id="g-q-3">
+          <p class="font-semibold text-slate-800">3. "______ do you do?" (Asking for occupation)</p>
+          <div class="flex gap-2">
+            <button onclick="markGrammarDrill(3, 'correct', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">What</button>
+            <button onclick="markGrammarDrill(3, 'wrong', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">Where</button>
+          </div>
+          <p class="feedback hidden text-[11px] font-bold"></p>
+        </div>
+
+        <!-- Drills Q4 -->
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs space-y-1.5" id="g-q-4">
+          <p class="font-semibold text-slate-800">4. "When ______ we start work?"</p>
+          <div class="flex gap-2">
+            <button onclick="markGrammarDrill(4, 'correct', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">do</button>
+            <button onclick="markGrammarDrill(4, 'wrong', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">does</button>
+          </div>
+          <p class="feedback hidden text-[11px] font-bold"></p>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <button class="bg-white hover:bg-slate-100 text-deepBlue font-medium px-5 py-2.5 rounded-lg border border-slate-200 flex items-center gap-1.5 transition-colors text-sm cursor-pointer" onclick="goTo(2)"><i class="ph ph-arrow-left"></i> Back</button>
+        <button class="bg-orangeAction hover:bg-orangeHover text-white font-semibold px-6 py-2.5 rounded-lg flex items-center gap-2 transition-colors shadow-sm text-sm cursor-pointer" onclick="goTo(4)">Next: Strategic Case Files <i class="ph ph-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- STEP 4 – STRATEGIC CASE FILES (5 CONVERSATION CASES - CLEAN TEACHER QUESTIONS) -->
+    <div class="section" id="sec4">
+      <span class="inline-block text-xs font-bold tracking-widest text-orangeAction uppercase bg-orange-50 px-3 py-1 rounded-full mb-3 border border-orange-100">Step 4: Strategic Case Files (15-18 min)</span>
+      <h2 class="text-2xl font-bold text-deepBlue mb-2">Work Routine &amp; Background Scenarios (5 Cases)</h2>
+      <p class="text-slate-500 mb-6 text-sm">Select one of the 5 scenarios below to load its visual context. Use the clean question prompts to guide your conversation with the student using 'do' (I, you, we, they):</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-6">
+        <div class="md:col-span-4 space-y-2 flex flex-col">
+          <span class="text-xs font-bold text-slate-400 uppercase font-mono block">Choose Scenario:</span>
+          
+          <button onclick="triggerDilemmaScenario('office')" id="btn-scen-office" class="w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer">
+            <span class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 border"><img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=200&q=80" alt="" class="w-full h-full object-cover"></span>
+            <div><strong class="text-deepBlue block">1. Office Work</strong><span class="text-slate-400">Where do you work?</span></div>
+          </button>
+
+          <button onclick="triggerDilemmaScenario('profession')" id="btn-scen-profession" class="w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer">
+            <span class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 border"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=200&q=80" alt="" class="w-full h-full object-cover"></span>
+            <div><strong class="text-deepBlue block">2. New Colleague</strong><span class="text-slate-400">What do you do?</span></div>
+          </button>
+
+          <button onclick="triggerDilemmaScenario('schedule')" id="btn-scen-schedule" class="w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer">
+            <span class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 border"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=200&q=80" alt="" class="w-full h-full object-cover"></span>
+            <div><strong class="text-deepBlue block">3. Daily Schedule</strong><span class="text-slate-400">When do you start?</span></div>
+          </button>
+
+          <button onclick="triggerDilemmaScenario('city')" id="btn-scen-city" class="w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer">
+            <span class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 border"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=200&q=80" alt="" class="w-full h-full object-cover"></span>
+            <div><strong class="text-deepBlue block">4. Hometown &amp; Living</strong><span class="text-slate-400">Where do you live?</span></div>
+          </button>
+
+          <button onclick="triggerDilemmaScenario('remote')" id="btn-scen-remote" class="w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer">
+            <span class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 border"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=200&q=80" alt="" class="w-full h-full object-cover"></span>
+            <div><strong class="text-deepBlue block">5. Remote Work</strong><span class="text-slate-400">How do you work?</span></div>
+          </button>
+
+        </div>
+
+        <div class="md:col-span-8 space-y-4">
+          <div id="dilemma-data-panel" class="hidden rounded-xl bg-white border border-slate-200 text-xs leading-relaxed shadow-sm overflow-hidden">
+            <div class="w-full h-[140px] overflow-hidden"><img id="dilemma-image" src="" alt="" class="w-full h-full object-cover"></div>
+            <div class="p-4">
+              <div class="flex items-center gap-2 mb-2 border-b pb-2">
+                <span id="dilemma-icon" class="text-lg"></span>
+                <strong id="dilemma-title" class="text-deepBlue uppercase tracking-wider font-mono">Scenario Details</strong>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+                <div class="bg-rose-50/40 p-3 rounded-lg border border-rose-100">
+                  <span class="font-bold text-rose-700 block uppercase text-[9px] font-mono mb-1">Situation</span>
+                  <p id="dilemma-pros" class="text-slate-600 font-medium"></p>
+                </div>
+                <div class="bg-emerald-50/40 p-3 rounded-lg border border-emerald-100">
+                  <span class="font-bold text-emerald-700 block uppercase text-[9px] font-mono mb-1">Target Pattern</span>
+                  <p id="dilemma-cons" class="text-slate-600 font-medium"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="teacher-talk-panel" class="hidden p-4 rounded-xl bg-slate-900 border border-slate-800 text-slate-100 text-xs shadow-md">
+            <div class="flex items-center gap-2 text-orangeAction font-bold uppercase tracking-wider text-[10px] mb-2 font-mono">
+              <i class="ph-bold ph-chats-teardrop text-sm animate-pulse"></i> Teacher Questions to Ask the Student (Clean Prompts using Do)
+            </div>
+            <div id="teacher-questions-box" class="space-y-2 font-mono text-white text-xs leading-relaxed bg-slate-950 p-3 rounded-lg border border-slate-800"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-xl p-4 flex justify-between items-center shadow-sm mb-4">
+        <div class="flex gap-3 items-center">
+          <div class="p-2 bg-slate-100 rounded-lg text-base"><i class="ph ph-check-square text-orangeAction"></i></div>
+          <div>
+            <h4 class="text-xs font-bold text-deepBlue">Conversation Simulation Completed</h4>
+            <p class="text-[11px] text-slate-500">Check this box once you finish discussing this scenario with your student.</p>
+          </div>
+        </div>
+        <label class="flex items-center gap-2 cursor-pointer select-none">
+          <input type="checkbox" id="instr-check" onchange="unlockStep5()" class="rounded border-slate-300 text-orangeAction focus:ring-orangeAction w-4 h-4 cursor-pointer">
+          <span class="text-xs font-bold text-slate-600 uppercase">Confirmed</span>
+        </label>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <button class="bg-white hover:bg-slate-100 text-deepBlue font-medium px-5 py-2.5 rounded-lg border border-slate-200 flex items-center gap-1.5 transition-colors text-sm cursor-pointer" onclick="goTo(3)"><i class="ph ph-arrow-left"></i> Back</button>
+        <button id="btn-to-step5" class="bg-orangeAction hover:bg-orangeHover text-white font-semibold px-6 py-2.5 rounded-lg hidden items-center gap-2 transition-colors shadow-sm text-sm cursor-pointer" onclick="goTo(5)">Next: Sentence Architect <i class="ph ph-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- STEP 5 – SENTENCE ARCHITECT & SYNTAX BUILDER -->
+    <div class="section" id="sec5">
+      <span class="inline-block text-xs font-bold tracking-widest text-emerald-700 uppercase bg-emerald-50 px-3 py-1 rounded-full mb-3 border border-emerald-100">Step 5: Sentence Architect (10-15 min)</span>
+      <h2 class="text-2xl font-bold text-deepBlue mb-2">Syntax Builder: Constructing Wh- Questions with DO</h2>
+      <p class="text-sm text-slate-500 mb-6">Click or tap the word tiles in the correct sequence to build accurate Wh- questions using 'do' (I, you, we, they).</p>
+
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-6 space-y-6">
+        <div class="flex items-center justify-between border-b pb-3">
+          <span class="text-xs font-mono font-bold text-orangeAction uppercase" id="builder-counter">Sentence 1 of 3</span>
+          <span class="text-xs font-mono text-slate-400">Target: Wh- + Do Syntax</span>
+        </div>
+
+        <div>
+          <span class="text-xs font-mono text-slate-500 block mb-1">Portuguese Reference:</span>
+          <p id="builder-target-ref" class="text-sm sm:text-base font-semibold text-deepBlue bg-slate-50 p-3 rounded-xl border border-slate-200">
+            Carregando referência...
+          </p>
+        </div>
+
+        <!-- SLOT DROP ZONE -->
+        <div>
+          <span class="text-xs font-mono text-slate-500 block mb-1">Your Built Sentence (Click tiles to assemble):</span>
+          <div id="builder-slot-zone" class="min-h-[60px] p-3 bg-slate-900 rounded-xl border border-slate-800 flex flex-wrap gap-2 items-center">
+            <!-- Tiles placed here -->
+          </div>
+        </div>
+
+        <!-- AVAILABLE TILES -->
+        <div>
+          <span class="text-xs font-mono text-slate-500 block mb-1">Available Tiles:</span>
+          <div id="builder-tiles-zone" class="min-h-[60px] p-3 bg-slate-100 rounded-xl border border-slate-200 flex flex-wrap gap-2 items-center">
+            <!-- Available tiles here -->
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center pt-2">
+          <button onclick="resetCurrentSentence()" class="bg-white hover:bg-slate-100 text-deepBlue border border-slate-200 text-xs font-semibold px-4 py-2 rounded-lg transition-all cursor-pointer">
+            Reset Tiles
+          </button>
+          <button onclick="checkBuiltSentence()" class="bg-orangeAction hover:bg-orangeHover text-white text-xs font-semibold px-6 py-2.5 rounded-lg transition-all shadow cursor-pointer">
+            Check Sentence
+          </button>
+        </div>
+
+        <div id="builder-feedback" class="hidden p-3 rounded-xl text-xs font-mono"></div>
+      </div>
+
+      <div class="bg-slate-900 text-white rounded-xl p-5 text-center shadow-md border border-slate-800">
+        <h4 class="text-sm font-bold mb-1 font-mono uppercase tracking-wider text-orangeAction">Save Learning Progress</h4>
+        <p class="text-xs text-slate-400 mb-4 leading-relaxed">Ready to complete today's session?</p>
+        <button onclick="alert('Session completed successfully! Excellent command of Work Routine and Wh- Questions with Do!')" class="inline-flex items-center gap-2 bg-white hover:bg-slate-100 text-deepBlue text-xs font-bold uppercase px-5 py-2.5 rounded-lg transition-all shadow font-mono cursor-pointer">
+          Finish Masterclass <i class="ph ph-check"></i>
+        </button>
+      </div>
+
+      <div class="flex justify-start mt-4">
+        <button class="bg-white hover:bg-slate-100 text-deepBlue font-medium px-5 py-2.5 rounded-lg border border-slate-200 flex items-center gap-1.5 transition-colors text-sm cursor-pointer" onclick="goTo(4)"><i class="ph ph-arrow-left"></i> Back</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- SCRIPT LOGIC -->
+<script>
+let currentSection = 1;
+
+// 10 CONVERSATION VOCABULARY FLASHCARDS (WORK ROUTINE & WH- QUESTIONS WITH ACTION VERBS)
+const flashcardsData = [
+  { 
+    en: "Where", 
+    def: "A question word used to ask about place or location.", 
+    ex: "Where do you work?",
+    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80"
+  },
+  { 
+    en: "What", 
+    def: "A question word used to ask about specific things or actions.", 
+    ex: "What do you do?",
+    img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80"
+  },
+  { 
+    en: "When", 
+    def: "A question word used to ask about time or schedule.", 
+    ex: "When do you start work?",
+    img: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=400&q=80"
+  },
+  { 
+    en: "Work", 
+    def: "Activity performed for an occupation or job.", 
+    ex: "I work in an office.",
+    img: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=400&q=80"
+  },
+  { 
+    en: "Office", 
+    def: "A room or building where professional business is conducted.", 
+    ex: "We work in a modern office.",
+    img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80"
+  },
+  { 
+    en: "Start", 
+    def: "To begin an action or schedule.", 
+    ex: "When do you start?",
+    img: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=400&q=80"
+  },
+  { 
+    en: "Live", 
+    def: "To have one's home in a particular place.", 
+    ex: "Where do you live?",
+    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80"
+  },
+  { 
+    en: "Job", 
+    def: "A paid position of regular employment.", 
+    ex: "Do you like your job?",
+    img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=400&q=80"
+  },
+  { 
+    en: "Every day", 
+    def: "Each day; daily routine.", 
+    ex: "What do you do every day?",
+    img: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=400&q=80"
+  },
+  { 
+    en: "Help", 
+    def: "To make it easier for someone to do something.", 
+    ex: "How do you help your team?",
+    img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=400&q=80"
+  }
+];
+
+// Render Flashcards
+function renderFlashcards() {
+  const grid = document.getElementById('flashcardsGrid');
+  grid.innerHTML = '';
+  flashcardsData.forEach((card, idx) => {
+    let wrapper = document.createElement('div');
+    wrapper.className = "perspective-1000 w-full h-64 cursor-pointer";
+    wrapper.onclick = function() {
+      this.querySelector('.card-inner').classList.toggle('rotate-y-180');
+    };
+
+    wrapper.innerHTML = `
+      <div class="card-inner relative w-full h-full duration-500 transform-style-3d shadow-sm rounded-xl">
+        <!-- FRONT -->
+        <div class="absolute inset-0 w-full h-full bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col justify-between backface-hidden">
+          <div class="h-28 w-full overflow-hidden">
+            <img src="${card.img}" alt="${card.en}" class="w-full h-full object-cover">
+          </div>
+          <div class="p-3 flex flex-col justify-between flex-1">
+            <div class="flex items-center justify-between">
+              <span class="text-[9px] font-mono text-slate-400 uppercase">#${idx+1} · Click</span>
+              <button onclick="event.stopPropagation(); audioSpeak('${card.en}')" class="w-6 h-6 rounded-full bg-orange-50 text-orangeAction flex items-center justify-center hover:bg-orangeAction hover:text-white transition-colors cursor-pointer">
+                <i class="ph-bold ph-speaker-high text-xs"></i>
+              </button>
+            </div>
+            <div class="text-center">
+              <h4 class="text-deepBlue font-mono font-bold text-xs">${card.en}</h4>
+            </div>
+          </div>
+        </div>
+        <!-- BACK -->
+        <div class="absolute inset-0 w-full h-full bg-deepBlue text-white rounded-xl p-4 flex flex-col justify-between backface-hidden rotate-y-180">
+          <div class="flex items-center justify-between">
+            <span class="text-[9px] font-mono text-orangeAction uppercase">Vocabulary &amp; Usage</span>
+            <span class="text-[9px] font-mono text-slate-400">Class 02 Level</span>
+          </div>
+          <div class="space-y-1.5 text-left">
+            <p class="text-[11px] text-slate-200 leading-snug"><strong>Meaning:</strong> ${card.def}</p>
+            <p class="text-[11px] text-orange-300 italic leading-snug"><strong>Ex:</strong> "${card.ex}"</p>
+          </div>
+          <div class="text-center">
+            <span class="text-[9px] text-slate-400 italic">Back Side</span>
+          </div>
+        </div>
+      </div>
+    `;
+    grid.appendChild(wrapper);
+  });
+}
+document.addEventListener('DOMContentLoaded', renderFlashcards);
+
+// AUDIO PRONUNCIATION
+function audioSpeak(word) {
+  window.speechSynthesis.cancel();
+  const tts = new SpeechSynthesisUtterance(word);
+  tts.lang = 'en-US';
+  tts.rate = 0.85;
+  window.speechSynthesis.speak(tts);
+}
+
+// GRAMMAR DRILLS
+function markGrammarDrill(qNum, status, btn) {
+  const row = document.getElementById('g-q-' + qNum);
+  const fb = row.querySelector('.feedback');
+  fb.classList.remove('hidden');
+  row.querySelectorAll('button').forEach(b => b.className = "bg-white border px-3 py-1.5 rounded-lg text-slate-700 font-medium text-xs border-slate-200 hover:bg-slate-50 transition-all cursor-pointer");
+
+  if (status === 'correct') {
+    btn.className = "bg-emerald-50 border border-emerald-400 text-emerald-800 font-semibold px-3 py-1.5 rounded-lg text-xs";
+    fb.className = "feedback text-[11px] font-bold text-emerald-600 mt-1";
+    fb.textContent = "✓ Correct! Great job!";
+  } else {
+    btn.className = "bg-rose-50 border border-rose-400 text-rose-800 font-semibold px-3 py-1.5 rounded-lg text-xs";
+    fb.className = "feedback text-[11px] font-bold text-rose-600 mt-1";
+    fb.textContent = "✗ Incorrect. Try again.";
+  }
+}
+
+// SCENARIOS (5 CONVERSATION CASES WITH CLEAN TEACHER QUESTIONS - DO PRONOUNS I, YOU, WE, THEY)
+const dilemmaScenariosData = {
+  office: {
+    icon: "🏢",
+    title: "1. Office Work",
+    image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1000&q=80",
+    pros: "Discussing office location and environment.",
+    cons: "Target Pattern: 'Where do you work?'",
+    questions: [
+      "1. Where do you work every day?",
+      "2. Do you work in an office or from home?",
+      "3. Where do your colleagues work?",
+      "4. Do we work in a nice building?",
+      "5. Where do they store office documents?"
+    ],
+    btnId: "btn-scen-office"
+  },
+  profession: {
+    icon: "💼",
+    title: "2. New Colleague",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80",
+    pros: "Talking about professional roles and jobs.",
+    cons: "Target Pattern: 'What do you do?'",
+    questions: [
+      "1. What do you do for a living?",
+      "2. What do we need for this project?",
+      "3. What do they produce at their company?",
+      "4. Do you like your job?",
+      "5. Do they work in human resources?"
+    ],
+    btnId: "btn-scen-profession"
+  },
+  schedule: {
+    icon: "⏰",
+    title: "3. Daily Schedule",
+    image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1000&q=80",
+    pros: "Discussing work hours and starting times.",
+    cons: "Target Pattern: 'When do you start?'",
+    questions: [
+      "1. When do you start your work day?",
+      "2. When do we finish our meetings?",
+      "3. When do they take a lunch break?",
+      "4. Do you start work early in the morning?",
+      "5. Do we start projects on Mondays?"
+    ],
+    btnId: "btn-scen-schedule"
+  },
+  city: {
+    icon: "🌆",
+    title: "4. Hometown & Living",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80",
+    pros: "Talking about where you live and reside.",
+    cons: "Target Pattern: 'Where do you live?'",
+    questions: [
+      "1. Where do you live right now?",
+      "2. Where do they buy groceries?",
+      "3. Where do we meet for team lunch?",
+      "4. Do you live near the office?",
+      "5. Do they live in the city center?"
+    ],
+    btnId: "btn-scen-city"
+  },
+  remote: {
+    icon: "💻",
+    title: "5. Remote Work",
+    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1000&q=80",
+    pros: "Discussing remote work routines.",
+    cons: "Target Pattern: 'How do you work every day?'",
+    questions: [
+      "1. How do you communicate with clients online?",
+      "2. How do we share files with the team?",
+      "3. How do they organize remote meetings?",
+      "4. Do you prefer working from home?",
+      "5. Do they use computers every day?"
+    ],
+    btnId: "btn-scen-remote"
+  }
+};
+
+function triggerDilemmaScenario(key) {
+  const data = dilemmaScenariosData[key];
+  document.querySelectorAll('[id^="btn-scen-"]').forEach(b => {
+    b.className = "w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer";
+  });
+  document.getElementById(data.btnId).className = "w-full text-left bg-orangeAction border border-orangeAction text-white p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all font-semibold shadow-sm cursor-pointer";
+
+  document.getElementById('dilemma-data-panel').classList.remove('hidden');
+  document.getElementById('teacher-talk-panel').classList.remove('hidden');
+
+  document.getElementById('dilemma-image').src = data.image;
+  document.getElementById('dilemma-icon').textContent = data.icon;
+  document.getElementById('dilemma-title').textContent = data.title;
+  document.getElementById('dilemma-pros').textContent = data.pros;
+  document.getElementById('dilemma-cons').textContent = data.cons;
+
+  const qBox = document.getElementById('teacher-questions-box');
+  qBox.innerHTML = data.questions.map(q => `<p class="font-medium p-1">• ${q}</p>`).join('');
+  document.getElementById('dilemma-data-panel').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function unlockStep5() {
+  const checked = document.getElementById('instr-check').checked;
+  const btn = document.getElementById('btn-to-step5');
+  if (checked) {
+    btn.classList.remove('hidden');
+    btn.classList.add('inline-flex');
+  } else {
+    btn.classList.add('hidden');
+    btn.classList.remove('inline-flex');
+  }
+}
+
+// STEP 5: SENTENCE ARCHITECT & SYNTAX BUILDER
+const builderSentences = [
+  {
+    ref: "Onde você trabalha?",
+    correct: ["Where", "do", "you", "work?"],
+    shuffled: ["work?", "Where", "you", "do"]
+  },
+  {
+    ref: "O que você faz?",
+    correct: ["What", "do", "you", "do?"],
+    shuffled: ["do?", "What", "you", "do"]
+  },
+  {
+    ref: "Quando nós começamos?",
+    correct: ["When", "do", "we", "start?"],
+    shuffled: ["start?", "When", "we", "do"]
+  }
+];
+
+let currentBuilderIdx = 0;
+
+function loadBuilderSentence() {
+  const item = builderSentences[currentBuilderIdx];
+  document.getElementById('builder-counter').textContent = `Sentence ${currentBuilderIdx + 1} of ${builderSentences.length}`;
+  document.getElementById('builder-target-ref').textContent = item.ref;
+  
+  const slotZone = document.getElementById('builder-slot-zone');
+  const tilesZone = document.getElementById('builder-tiles-zone');
+  slotZone.innerHTML = '';
+  tilesZone.innerHTML = '';
+  
+  document.getElementById('builder-feedback').classList.add('hidden');
+
+  item.shuffled.forEach((word) => {
+    let tile = document.createElement('button');
+    tile.className = "bg-white hover:bg-orange-50 border border-slate-300 text-deepBlue font-mono text-xs px-3 py-2 rounded-lg shadow-sm transition-all cursor-pointer";
+    tile.textContent = word;
+    tile.onclick = function() {
+      if (tile.parentElement === tilesZone) {
+        slotZone.appendChild(tile);
+      } else {
+        tilesZone.appendChild(tile);
+      }
+    };
+    tilesZone.appendChild(tile);
+  });
+}
+
+function resetCurrentSentence() {
+  loadBuilderSentence();
+}
+
+function checkBuiltSentence() {
+  const slotZone = document.getElementById('builder-slot-zone');
+  const userWords = Array.from(slotZone.children).map(t => t.textContent);
+  const correctWords = builderSentences[currentBuilderIdx].correct;
+  
+  const fb = document.getElementById('builder-feedback');
+  fb.classList.remove('hidden');
+
+  const isMatch = userWords.length === correctWords.length && userWords.every((w, i) => w === correctWords[i]);
+
+  if (isMatch) {
+    fb.className = "p-3 rounded-xl text-xs font-mono bg-emerald-50 border border-emerald-300 text-emerald-900";
+    fb.textContent = "✓ Correct syntax! Perfect Wh- question construction.";
+    setTimeout(() => {
+      currentBuilderIdx++;
+      if (currentBuilderIdx < builderSentences.length) {
+        loadBuilderSentence();
+      } else {
+        document.getElementById('builder-counter').textContent = "All Sentences Completed! 🎉";
+      }
+    }, 1800);
+  } else {
+    fb.className = "p-3 rounded-xl text-xs font-mono bg-rose-50 border border-rose-300 text-rose-900";
+    fb.textContent = "✗ Not quite right. Check word order and try again.";
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadBuilderSentence);
+
+function playManagerPrompt(id, btn) {
+  window.speechSynthesis.cancel();
+  const script = document.getElementById(id).textContent;
+  const tts = new SpeechSynthesisUtterance(script);
+  tts.lang = 'en-US';
+  tts.rate = 0.85;
+  tts.onend = () => { btn.innerHTML = '<i class="ph-bold ph-speaker-high"></i> Listen'; };
+  window.speechSynthesis.speak(tts);
+}
+
+function goTo(n) {
+  document.getElementById('sec' + currentSection).classList.remove('active');
+  currentSection = n;
+  document.getElementById('sec' + n).classList.add('active');
+  document.getElementById('progressFill').style.width = (n * 20) + '%';
+  document.getElementById('progressLabel').textContent = 'Step ' + n + ' / 5';
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function resetSimulation() {
+  location.reload();
+}
+</script>
+</body>
+</html>

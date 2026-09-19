@@ -70,7 +70,7 @@
       <div class="md:col-span-2">
         <span class="text-orangeAction font-mono font-bold text-xs uppercase tracking-widest">Performance Diagnostics</span>
         <h2 class="text-3xl font-bold mt-1 mb-4">Your Independent Learning Road</h2>
-        <p class="text-slate-300 text-sm leading-relaxed mb-4">Access your masterclass modules and complete your paired homework assignments to reinforce conversational greetings, daily time structures, work routines, and Wh- questions.</p>
+        <p class="text-slate-300 text-sm leading-relaxed mb-4">Access your masterclass modules and complete your paired homework assignments to reinforce conversational greetings, daily time structures, work routines, Wh- questions, and specific choices with Which.</p>
         
         <!-- Linear Progress Tracker bar -->
         <div>
@@ -86,7 +86,7 @@
 
       <div class="grid grid-cols-2 gap-3 text-center">
         <div class="bg-slate-800/60 border border-slate-700/60 p-4 rounded-xl">
-          <span class="block text-2xl font-bold font-mono text-orangeAction" id="counterTotal">2</span>
+          <span class="block text-2xl font-bold font-mono text-orangeAction" id="counterTotal">3</span>
           <span class="text-[11px] font-semibold tracking-wider text-slate-400 uppercase">Modules</span>
         </div>
         <div class="bg-slate-800/60 border border-slate-700/60 p-4 rounded-xl">
@@ -174,6 +174,40 @@
       </div>
     </div>
 
+    <!-- Class Card 3: Mastering Wh- Questions & Present Simple Core -->
+    <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md hover:border-slate-300 transition-all flex flex-col md:flex-row md:items-center justify-between gap-6" id="taskCard-3">
+      <div class="flex items-start gap-4">
+        <div class="p-3 bg-emerald-50 text-emerald-700 rounded-xl border border-emerald-100 flex-shrink-0 text-2xl">
+          <i class="ph ph-chats-circle"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap mb-1">
+            <span class="text-xs font-mono font-bold text-emerald-700 bg-emerald-50 border border-emerald-100 px-2 py-0.5 rounded">Module 3</span>
+            <span class="text-xs bg-slate-100 px-2 py-0.5 text-slate-600 rounded-md font-mono uppercase tracking-wider font-bold">Class 03</span>
+          </div>
+          <h4 class="font-bold text-deepBlue text-lg">Mastering Wh- Questions &amp; Present Simple Core</h4>
+          <p class="text-xs text-slate-500 mt-1">Consolidation of affirmative, negative, and interrogative structures, featuring the power of 'Which' for specific choices.</p>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center justify-between md:justify-end gap-3 border-t md:border-t-0 pt-4 md:pt-0 border-slate-100">
+        <!-- Status Switcher checkbox -->
+        <label class="flex items-center gap-2 cursor-pointer select-none">
+          <input type="checkbox" id="checkTask-3" onchange="toggleTaskStatus(3)" class="w-4 h-4 rounded text-orangeAction focus:ring-orangeAction border-slate-300">
+          <span class="text-xs font-mono font-bold text-slate-500 uppercase" id="statusLabel-3">Not Started</span>
+        </label>
+        
+        <!-- Dual Action Buttons -->
+        <div class="flex items-center gap-2 w-full sm:w-auto">
+          <a href="class_03.html" id="linkClass-3" class="bg-deepBlue hover:bg-slate-800 text-white font-semibold text-xs px-3.5 py-2.5 rounded-lg transition-colors flex items-center gap-1.5 justify-center flex-1 sm:flex-initial">
+            <i class="ph ph-book-open"></i> Class
+          </a>
+          <a href="homework_03.html" id="linkHomework-3" class="bg-orangeAction hover:bg-orangeHover text-white font-semibold text-xs px-3.5 py-2.5 rounded-lg transition-colors flex items-center gap-1.5 justify-center flex-1 sm:flex-initial">
+            <i class="ph ph-pencil-line"></i> Homework
+          </a>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- ── TEACHER CONFIGURATION DASHBOARD (HIDDEN BY DEFAULT) ── -->
@@ -188,7 +222,7 @@
         <label class="block text-xs font-mono font-bold uppercase text-slate-500 mb-1">Student Display Name:</label>
         <input type="text" id="inputStudentName" class="w-full p-2.5 border rounded-lg focus:outline-none focus:border-orangeAction bg-slate-50" placeholder="Type student name...">
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="space-y-3 p-4 bg-slate-50 rounded-xl border">
           <span class="text-xs font-bold font-mono text-slate-600 uppercase">Module 1 Links</span>
           <div>
@@ -211,6 +245,17 @@
             <input type="text" id="inputHw2" class="w-full p-2.5 border rounded-lg focus:outline-none focus:border-orangeAction bg-white font-mono text-xs" placeholder="homework_02.html">
           </div>
         </div>
+        <div class="space-y-3 p-4 bg-slate-50 rounded-xl border">
+          <span class="text-xs font-bold font-mono text-slate-600 uppercase">Module 3 Links</span>
+          <div>
+            <label class="block text-xs font-mono uppercase text-slate-500 mb-1">Class URL:</label>
+            <input type="text" id="inputClass3" class="w-full p-2.5 border rounded-lg focus:outline-none focus:border-orangeAction bg-white font-mono text-xs" placeholder="class_03.html">
+          </div>
+          <div>
+            <label class="block text-xs font-mono uppercase text-slate-500 mb-1">Homework URL:</label>
+            <input type="text" id="inputHw3" class="w-full p-2.5 border rounded-lg focus:outline-none focus:border-orangeAction bg-white font-mono text-xs" placeholder="homework_03.html">
+          </div>
+        </div>
       </div>
     </div>
     <button onclick="saveTeacherSettings()" class="bg-deepBlue hover:bg-slate-800 text-white font-semibold text-xs px-5 py-2.5 rounded-lg transition-colors font-mono">
@@ -226,7 +271,8 @@ let appState = {
   studentName: "Marcelo",
   tasks: {
     1: { completed: false, classPath: "class_01.html", hwPath: "homework_01.html" },
-    2: { completed: false, classPath: "class_02.html", hwPath: "homework_02.html" }
+    2: { completed: false, classPath: "class_02.html", hwPath: "homework_02.html" },
+    3: { completed: false, classPath: "class_03.html", hwPath: "homework_03.html" }
   }
 };
 
@@ -241,12 +287,16 @@ function saveTeacherSettings() {
   const h1 = document.getElementById('inputHw1').value.trim();
   const c2 = document.getElementById('inputClass2').value.trim();
   const h2 = document.getElementById('inputHw2').value.trim();
+  const c3 = document.getElementById('inputClass3').value.trim();
+  const h3 = document.getElementById('inputHw3').value.trim();
 
   if (nameVal) appState.studentName = nameVal;
   if (c1) appState.tasks[1].classPath = c1;
   if (h1) appState.tasks[1].hwPath = h1;
   if (c2) appState.tasks[2].classPath = c2;
   if (h2) appState.tasks[2].hwPath = h2;
+  if (c3) appState.tasks[3].classPath = c3;
+  if (h3) appState.tasks[3].hwPath = h3;
 
   localStorage.setItem('metodo_fala_marcelo_hub_state', JSON.stringify(appState));
   syncDOM();
@@ -313,9 +363,9 @@ window.onload = function() {
   if (savedState) {
     try {
       appState = JSON.parse(savedState);
-      // Garantir compatibilidade caso o state salvo nao possua a task 2
-      if (!appState.tasks[2]) {
-        appState.tasks[2] = { completed: false, classPath: "class_02.html", hwPath: "homework_02.html" };
+      // Garantir compatibilidade caso o state salvo nao possua a task 3
+      if (!appState.tasks[3]) {
+        appState.tasks[3] = { completed: false, classPath: "class_03.html", hwPath: "homework_03.html" };
       }
     } catch (e) {
       console.error("Failure restoring localized states.", e);

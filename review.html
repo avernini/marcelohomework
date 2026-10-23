@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MÉTODO FALA – Balanced Studio: Do/Don't & Third Person Rules</title>
+<!-- Tailwind CSS & Phosphor Icons -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          deepBlue: '#0F172A',
+          bodyLight: '#F8FAFC',
+          orangeAction: '#C2410C',
+          orangeHover: '#EA580C',
+          darkSlate: '#334155',
+          softSand: '#F1F5F9',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
+  body { font-family: 'Inter', sans-serif; }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+  .section { display: none; animation: fadeUp .35s ease; }
+  .section.active { display: block; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .perspective-1000 { perspective: 1000px; }
+  .transform-style-3d { transform-style: preserve-3d; }
+  .backface-hidden { backface-visibility: hidden; }
+  .rotate-y-180 { transform: rotateY(180deg); }
+</style>
+</head>
+<body class="bg-deepBlue text-darkSlate min-h-screen text-[17px] antialiased">
+
+<!-- HEADER FALA COM BOTÃO DE RETORNO AO INÍCIO -->
+<header class="bg-deepBlue sticky top-0 z-50 border-b border-slate-800 shadow-md">
+  <div class="max-w-[1000px] mx-auto px-6 py-4 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <div class="flex-shrink-0">
+        <button onclick="resetSimulation()" class="cursor-pointer hover:opacity-95 text-left focus:outline-none transition-opacity group bg-transparent border-0 p-0" title="Return to start">
+          <span class="text-white font-bold tracking-wider text-lg mono group-hover:text-orangeAction transition-colors block">MÉTODO <span class="text-orangeAction">FALA</span></span>
+          <span class="block text-[10px] text-slate-400 font-mono uppercase tracking-widest">Balanced Self-Study Studio</span>
+        </button>
+      </div>
+      <div class="h-6 w-[1px] bg-slate-700 hidden sm:block"></div>
+      <div class="hidden sm:block">
+        <h1 class="text-base font-bold text-white tracking-wide">Balanced Studio: Do/Don't vs. Third Person (-s, -es, -ies)</h1>
+        <p class="text-xs text-slate-400">100% Self-Guided Learning · Complete Present Simple Mastery</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mono" id="progressLabel">Step 1 / 5</span>
+      <div class="w-24 sm:w-32 h-2.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700">
+        <div class="h-full bg-orangeAction rounded-full transition-all duration-300" id="progressFill" style="width:20%"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN WORKSPACE -->
+<div class="bg-bodyLight w-full min-h-[calc(100vh-69px)]">
+  <main class="max-w-[1000px] mx-auto px-6 py-8 pb-24">
+
+    <!-- STEP 1 – AUTONOMOUS INPUT & GUIDED THOUGHT CHECK -->
+    <div class="section active" id="sec1">
+      <span class="inline-block text-xs font-bold tracking-widest text-orangeAction uppercase bg-orange-50 px-3 py-1 rounded-full mb-3 border border-orange-100">Step 1: Self-Guided Context &amp; Audio Input (5 min)</span>
+      <h2 class="text-3xl font-bold text-deepBlue mb-2 leading-tight">Balancing General Habits and Third-Person Routines</h2>
+      <p class="text-base text-slate-500 mb-6 leading-relaxed">In English, keeping track of when to use <em>do/don't</em> versus <em>does/doesn't</em> and verb endings (-s, -es, -ies) is the key to natural fluency. Listen to the balanced audio model below:</p>
+
+      <!-- AUDIO INPUT BANNER -->
+      <div class="w-full bg-slate-900 rounded-2xl p-6 shadow-md mb-6 border border-slate-800 text-white flex items-center justify-between gap-4">
+        <div class="space-y-1">
+          <span class="text-[10px] font-mono text-orangeAction uppercase tracking-widest block font-bold">Audio Model (Listening Input)</span>
+          <p id="intro-audio-text" class="text-xs sm:text-sm font-mono text-slate-200">"I work downtown, but my coworker works from home. I don't drink coffee at night, but she drinks two cups every morning."</p>
+        </div>
+        <button onclick="playIntroAudio(this)" class="bg-orangeAction hover:bg-orangeHover text-white px-4 py-3 rounded-xl flex items-center gap-2 text-xs font-mono font-bold transition-all shadow cursor-pointer flex-shrink-0">
+          <i class="ph-bold ph-speaker-high text-base"></i> Play Audio
+        </button>
+      </div>
+
+      <!-- GUIDED THOUGHT CHECK -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-6 space-y-4">
+        <h4 class="text-xs font-bold font-mono text-slate-400 uppercase tracking-wider">Guided Thought Check: Choose Your Focus</h4>
+        <p class="text-xs text-slate-600">Select the option below that best contrasts general actions with third-person habits:</p>
+        
+        <div class="space-y-2.5">
+          <button onclick="selectProfileOption(1, this)" class="w-full text-left p-3 rounded-xl border border-slate-200 bg-slate-50 hover:border-orangeAction hover:bg-orange-50/50 text-xs font-medium text-slate-700 transition-all cursor-pointer flex items-center justify-between">
+            <span>A) I <strong>work</strong> in an office, and my partner <strong>works</strong> remotely.</span>
+            <span class="indicator text-slate-400 font-mono text-[10px]">Select</span>
+          </button>
+          <button onclick="selectProfileOption(2, this)" class="w-full text-left p-3 rounded-xl border border-slate-200 bg-slate-50 hover:border-orangeAction hover:bg-orange-50/50 text-xs font-medium text-slate-700 transition-all cursor-pointer flex items-center justify-between">
+            <span>B) We <strong>don't</strong> like chaos, but our manager <strong>doesn't</strong> mind it.</span>
+            <span class="indicator text-slate-400 font-mono text-[10px]">Select</span>
+          </button>
+        </div>
+        <div id="profile-feedback" class="hidden p-3 rounded-xl text-xs font-mono bg-emerald-50 border border-emerald-300 text-emerald-900">
+          ✓ Excellent! Balancing I/you/we/they with he/she/it creates a complete picture of daily life.
+        </div>
+      </div>
+
+      <div class="flex justify-end pt-4">
+        <button class="bg-orangeAction hover:bg-orangeHover text-white font-bold px-8 py-4 rounded-xl flex items-center gap-3 transition-all transform hover:-translate-y-0.5 shadow-md text-base cursor-pointer" onclick="goTo(2)">
+          Next: Vocabulary Lab <i class="ph-bold ph-arrow-right text-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 2 – FLASHCARDS VOCABULARY LAB -->
+    <div class="section" id="sec2">
+      <span class="inline-block text-xs font-bold tracking-widest text-orangeAction uppercase bg-orange-50 px-3 py-1 rounded-full mb-3 border border-orange-100">Step 2: Vocabulary Lab (8-10 min)</span>
+      <h2 class="text-2xl font-bold text-deepBlue mb-2">Balanced Vocabulary &amp; Auxiliaries</h2>
+      <p class="text-slate-500 mb-6 text-sm leading-relaxed">Review base verbs, negative auxiliaries, and third-person verb forms with built-in TTS audio. Click any card to flip it:</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6" id="flashcardsGrid"></div>
+
+      <div class="flex justify-between items-center pt-4">
+        <button class="bg-white hover:bg-slate-100 text-deepBlue font-bold px-7 py-3.5 rounded-xl border border-slate-300 flex items-center gap-2.5 transition-colors shadow-sm text-sm cursor-pointer" onclick="goTo(1)">
+          <i class="ph-bold ph-arrow-left text-base"></i> Back
+        </button>
+        <button class="bg-orangeAction hover:bg-orangeHover text-white font-bold px-8 py-4 rounded-xl flex items-center gap-3 transition-all transform hover:-translate-y-0.5 shadow-md text-base cursor-pointer" onclick="goTo(3)">
+          Next: Grammar Calibration <i class="ph-bold ph-arrow-right text-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 3 – GRAMMAR CALIBRATION & BALANCED STRUCTURES -->
+    <div class="section" id="sec3">
+      <span class="inline-block text-xs font-bold tracking-widest text-orangeAction uppercase bg-orange-50 px-3 py-1 rounded-full mb-3 border border-orange-100">Step 3: Grammar Calibration (10-12 min)</span>
+      <h2 class="text-2xl font-bold text-deepBlue mb-2">Grammar Focus: Do/Don't vs. Does/Doesn't &amp; -s/-es/-ies</h2>
+      <p class="text-slate-500 mb-6 text-sm">Compare side-by-side how pronouns and auxiliaries behave in the Present Simple:</p>
+
+      <!-- GRAMMAR REFERENCE GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 text-xs">
+        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-2">
+          <span class="font-bold text-orangeAction block uppercase font-mono tracking-wider text-[10px]">1. Group A: I, You, We, They</span>
+          <div class="p-2.5 bg-slate-50 rounded border font-mono text-[11px] text-slate-700 space-y-1">
+            <p>• Affirmative: I <strong>work</strong> / We <strong>start</strong></p>
+            <p>• Negative: You <strong>don't work</strong></p>
+            <p>• Question: <strong>Do</strong> they <strong>start</strong> early?</p>
+          </div>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-2">
+          <span class="font-bold text-emerald-700 block uppercase font-mono tracking-wider text-[10px]">2. Group B: He, She, It (Third Person)</span>
+          <div class="p-2.5 bg-slate-50 rounded border font-mono text-[11px] text-slate-700 space-y-1">
+            <p>• Affirmative: He work<strong>s</strong> / She stud<strong>ies</strong></p>
+            <p>• Negative: He <strong>doesn't work</strong></p>
+            <p>• Question: <strong>Does</strong> she <strong>start</strong> early?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE DRILLS -->
+      <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm mb-6 space-y-4">
+        <h4 class="text-xs font-bold font-mono text-slate-400 uppercase tracking-wider">Balanced Self-Check Drills (4 Challenges)</h4>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs space-y-1.5" id="g-q-1">
+          <p class="font-semibold text-slate-800">1. "Where ______ you usually work?"</p>
+          <div class="flex gap-2">
+            <button onclick="markGrammarDrill(1, 'correct', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">do</button>
+            <button onclick="markGrammarDrill(1, 'wrong', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">does</button>
+          </div>
+          <p class="feedback hidden text-[11px] font-bold"></p>
+        </div>
+
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs space-y-1.5" id="g-q-2">
+          <p class="font-semibold text-slate-800">2. "Where ______ your manager work?"</p>
+          <div class="flex gap-2">
+            <button onclick="markGrammarDrill(2, 'correct', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">does</button>
+            <button onclick="markGrammarDrill(2, 'wrong', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">do</button>
+          </div>
+          <p class="feedback hidden text-[11px] font-bold"></p>
+        </div>
+
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs space-y-1.5" id="g-q-3">
+          <p class="font-semibold text-slate-800">3. "We ______ like answering emails on weekends."</p>
+          <div class="flex gap-2">
+            <button onclick="markGrammarDrill(3, 'correct', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">don't</button>
+            <button onclick="markGrammarDrill(3, 'wrong', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">doesn't</button>
+          </div>
+          <p class="feedback hidden text-[11px] font-bold"></p>
+        </div>
+
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs space-y-1.5" id="g-q-4">
+          <p class="font-semibold text-slate-800">4. "She ______ reports every single morning."</p>
+          <div class="flex gap-2">
+            <button onclick="markGrammarDrill(4, 'correct', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">writes</button>
+            <button onclick="markGrammarDrill(4, 'wrong', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">write</button>
+          </div>
+          <p class="feedback hidden text-[11px] font-bold"></p>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center pt-4">
+        <button class="bg-white hover:bg-slate-100 text-deepBlue font-bold px-7 py-3.5 rounded-xl border border-slate-300 flex items-center gap-2.5 transition-colors shadow-sm text-sm cursor-pointer" onclick="goTo(2)">
+          <i class="ph-bold ph-arrow-left text-base"></i> Back
+        </button>
+        <button class="bg-orangeAction hover:bg-orangeHover text-white font-bold px-8 py-4 rounded-xl flex items-center gap-3 transition-all transform hover:-translate-y-0.5 shadow-md text-base cursor-pointer" onclick="goTo(4)">
+          Next: Interactive Dialogue Simulator <i class="ph-bold ph-arrow-right text-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 4 – INTERACTIVE DIALOGUE SIMULATOR (5 BALANCED CASES) -->
+    <div class="section" id="sec4">
+      <span class="inline-block text-xs font-bold tracking-widest text-orangeAction uppercase bg-orange-50 px-3 py-1 rounded-full mb-3 border border-orange-100">Step 4: Interactive Dialogue Simulator (12-15 min)</span>
+      <h2 class="text-2xl font-bold text-deepBlue mb-2">Virtual Partner Simulation (5 Balanced Cases)</h2>
+      <p class="text-slate-500 mb-6 text-sm">Select one of the 5 balanced scenarios below combining <em>do/don't</em> and third-person rules. Select the correct response to advance:</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-6">
+        <div class="md:col-span-4 space-y-2 flex flex-col">
+          <span class="text-xs font-bold text-slate-400 uppercase font-mono block">Choose Scenario:</span>
+          
+          <button onclick="triggerSimScenario('general')" id="btn-sim-general" class="w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer">
+            <span class="w-8 h-8 rounded-lg bg-slate-900 text-orangeAction flex items-center justify-center font-bold text-xs"><i class="ph-bold ph-chats"></i></span>
+            <div><strong class="text-deepBlue block">1. General Habits (Do/Don't)</strong><span class="text-slate-400">Coffee &amp; mornings</span></div>
+          </button>
+
+          <button onclick="triggerSimScenario('third')" id="btn-sim-third" class="w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer">
+            <span class="w-8 h-8 rounded-lg bg-slate-900 text-orangeAction flex items-center justify-center font-bold text-xs"><i class="ph-bold ph-user-switch"></i></span>
+            <div><strong class="text-deepBlue block">2. Colleague Routine (Third Person)</strong><span class="text-slate-400">Arriving &amp; working</span></div>
+          </button>
+
+          <button onclick="triggerSimScenario('location')" id="btn-sim-location" class="w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer">
+            <span class="w-8 h-8 rounded-lg bg-slate-900 text-orangeAction flex items-center justify-center font-bold text-xs"><i class="ph-bold ph-map-pin"></i></span>
+            <div><strong class="text-deepBlue block">3. Office Location (Where do/does)</strong><span class="text-slate-400">Working downtown</span></div>
+          </button>
+
+          <button onclick="triggerSimScenario('negative')" id="btn-sim-negative" class="w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer">
+            <span class="w-8 h-8 rounded-lg bg-slate-900 text-orangeAction flex items-center justify-center font-bold text-xs"><i class="ph-bold ph-x-circle"></i></span>
+            <div><strong class="text-deepBlue block">4. Weekend Plans (Don't/Doesn't)</strong><span class="text-slate-400">Resting on weekends</span></div>
+          </button>
+
+          <button onclick="triggerSimScenario('studies')" id="btn-sim-studies" class="w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer">
+            <span class="w-8 h-8 rounded-lg bg-slate-900 text-orangeAction flex items-center justify-center font-bold text-xs"><i class="ph-bold ph-book-open"></i></span>
+            <div><strong class="text-deepBlue block">5. Language Learning (Studies -ies)</strong><span class="text-slate-400">Studying English</span></div>
+          </button>
+        </div>
+
+        <div class="md:col-span-8 space-y-4">
+          <div id="sim-container" class="hidden p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-4 text-xs">
+            <div class="flex items-center justify-between border-b pb-2">
+              <span id="sim-title" class="font-bold text-deepBlue uppercase font-mono">Scenario</span>
+              <button onclick="playSimAudio()" class="text-orangeAction hover:underline flex items-center gap-1 font-mono text-[11px] cursor-pointer"><i class="ph-bold ph-speaker-high"></i> Listen to Prompt</button>
+            </div>
+            
+            <div class="p-3 bg-slate-900 text-white rounded-lg font-mono">
+              <span class="text-[9px] text-orangeAction uppercase block mb-1">Virtual Partner Says:</span>
+              <p id="sim-prompt-text" class="text-xs sm:text-sm font-semibold"></p>
+            </div>
+
+            <div class="space-y-2">
+              <span class="font-bold text-slate-400 uppercase font-mono text-[10px] block">Choose your best response:</span>
+              <div id="sim-options-box" class="space-y-2"></div>
+            </div>
+
+            <div id="sim-feedback" class="hidden p-3 rounded-lg font-mono text-[11px]"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-xl p-4 flex justify-between items-center shadow-sm mb-4">
+        <div class="flex gap-3 items-center">
+          <div class="p-2 bg-slate-100 rounded-lg text-base"><i class="ph ph-check-square text-orangeAction"></i></div>
+          <div>
+            <h4 class="text-xs font-bold text-deepBlue">Simulation Practice Completed</h4>
+            <p class="text-[11px] text-slate-500">Check this box once you successfully complete at least one dialogue simulation.</p>
+          </div>
+        </div>
+        <label class="flex items-center gap-2 cursor-pointer select-none">
+          <input type="checkbox" id="instr-check" onchange="unlockStep5()" class="rounded border-slate-300 text-orangeAction focus:ring-orangeAction w-4 h-4 cursor-pointer">
+          <span class="text-xs font-bold text-slate-600 uppercase">Confirmed</span>
+        </label>
+      </div>
+
+      <!-- BOTÕES DE NAVEGAÇÃO OFICIAIS MÉTODO FALA -->
+      <div class="flex justify-between items-center pt-4">
+        <button class="bg-white hover:bg-slate-100 text-deepBlue font-bold px-7 py-3.5 rounded-xl border border-slate-300 flex items-center gap-2.5 transition-colors shadow-sm text-sm cursor-pointer" onclick="goTo(3)">
+          <i class="ph-bold ph-arrow-left text-base"></i> Back
+        </button>
+        <button id="btn-to-step5" class="bg-orangeAction hover:bg-orangeHover text-white font-bold px-8 py-4 rounded-xl hidden items-center gap-3 transition-all transform hover:-translate-y-0.5 shadow-md text-base cursor-pointer" onclick="goTo(5)">
+          Next: Sentence Architect <i class="ph-bold ph-arrow-right text-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 5 – SENTENCE ARCHITECT (BLOCKS BUILDER) -->
+    <div class="section" id="sec5">
+      <span class="inline-block text-xs font-bold tracking-widest text-emerald-700 uppercase bg-emerald-50 px-3 py-1 rounded-full mb-3 border border-emerald-100">Step 5: Sentence Architect (10-15 min)</span>
+      <h2 class="text-2xl font-bold text-deepBlue mb-2">Syntax Builder: Assembling Balanced Sentences</h2>
+      <p class="text-sm text-slate-500 mb-6">Click the word tiles in the correct order to assemble balanced sentences featuring do/don't and third-person verbs:</p>
+
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-6 space-y-6">
+        <div class="flex items-center justify-between border-b pb-3">
+          <span class="text-xs font-mono font-bold text-orangeAction uppercase" id="builder-counter">Sentence 1 of 3</span>
+          <span class="text-xs font-mono text-slate-400">Target: Balanced Syntax</span>
+        </div>
+
+        <div>
+          <span class="text-xs font-mono text-slate-400 block mb-1">Portuguese Reference:</span>
+          <p id="builder-target-ref" class="text-sm sm:text-base font-semibold text-deepBlue bg-slate-50 p-3 rounded-xl border border-slate-200">
+            Carregando referência...
+          </p>
+        </div>
+
+        <!-- SLOT DROP ZONE -->
+        <div>
+          <span class="text-xs font-mono text-slate-400 block mb-1">Your Built Sentence (Click tiles to assemble):</span>
+          <div id="builder-slot-zone" class="min-h-[60px] p-3 bg-slate-900 rounded-xl border border-slate-800 flex flex-wrap gap-2 items-center"></div>
+        </div>
+
+        <!-- AVAILABLE TILES -->
+        <div>
+          <span class="text-xs font-mono text-slate-400 block mb-1">Available Tiles:</span>
+          <div id="builder-tiles-zone" class="min-h-[60px] p-3 bg-slate-100 rounded-xl border border-slate-200 flex flex-wrap gap-2 items-center"></div>
+        </div>
+
+        <div class="flex justify-between items-center pt-2">
+          <button onclick="resetCurrentSentence()" class="bg-white hover:bg-slate-100 text-deepBlue border border-slate-200 text-xs font-semibold px-4 py-2 rounded-lg transition-all cursor-pointer">
+            Reset Tiles
+          </button>
+          <button onclick="checkBuiltSentence()" class="bg-orangeAction hover:bg-orangeHover text-white text-xs font-semibold px-6 py-2.5 rounded-lg transition-all shadow cursor-pointer">
+            Check Sentence
+          </button>
+        </div>
+
+        <div id="builder-feedback" class="hidden p-3 rounded-xl text-xs font-mono"></div>
+      </div>
+
+            <!-- BOTÃO DE NAVEGAÇÃO OFICIAIS MÉTODO FALA -->
+      <div class="flex justify-start pt-4">
+        <button class="bg-white hover:bg-slate-100 text-deepBlue font-bold px-7 py-3.5 rounded-xl border border-slate-300 flex items-center gap-2.5 transition-colors shadow-sm text-sm cursor-pointer" onclick="goTo(4)">
+          <i class="ph-bold ph-arrow-left text-base"></i> Back
+        </button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- SCRIPT LOGIC -->
+<script>
+let currentSection = 1;
+
+// FLASHCARDS EQUILIBRADOS (DO/DON'T E THIRD PERSON)
+const flashcardsData = [
+  { 
+    en: "Do", 
+    def: "Auxiliary verb for I, you, we, they in questions.", 
+    ex: "Do you work downtown?", 
+    icon: "ph-question",
+    color: "bg-blue-600"
+  },
+  { 
+    en: "Don't", 
+    def: "Do not (negative auxiliary for I, you, we, they).", 
+    ex: "I don't drink coffee at night.", 
+    icon: "ph-x-circle",
+    color: "bg-rose-600"
+  },
+  { 
+    en: "Does", 
+    def: "Auxiliary verb for he, she, it in questions.", 
+    ex: "Does your manager travel often?", 
+    icon: "ph-user-gear",
+    color: "bg-indigo-600"
+  },
+  { 
+    en: "Doesn't", 
+    def: "Does not (negative auxiliary for he, she, it).", 
+    ex: "He doesn't work on weekends.", 
+    icon: "ph-minus-circle",
+    color: "bg-amber-600"
+  },
+  { 
+    en: "Works", 
+    def: "Third person singular affirmative of work.", 
+    ex: "She works in an office.", 
+    icon: "ph-briefcase",
+    color: "bg-purple-600"
+  },
+  { 
+    en: "Studies", 
+    def: "Third person singular affirmative of study.", 
+    ex: "He studies English every morning.", 
+    icon: "ph-book-open",
+    color: "bg-emerald-600"
+  },
+  { 
+    en: "Usually", 
+    def: "Frequency adverb indicating normal habits.", 
+    ex: "She usually arrives early.", 
+    icon: "ph-calendar-check",
+    color: "bg-cyan-600"
+  },
+  { 
+    en: "Where", 
+    def: "Question word asking for location.", 
+    ex: "Where do you live?", 
+    icon: "ph-map-pin",
+    color: "bg-slate-700"
+  }
+];
+
+function renderFlashcards() {
+  const grid = document.getElementById('flashcardsGrid');
+  grid.innerHTML = '';
+  flashcardsData.forEach((card, idx) => {
+    let wrapper = document.createElement('div');
+    wrapper.className = "perspective-1000 w-full h-64 cursor-pointer";
+    wrapper.onclick = function() {
+      this.querySelector('.card-inner').classList.toggle('rotate-y-180');
+    };
+    wrapper.innerHTML = `
+      <div class="card-inner relative w-full h-full duration-500 transform-style-3d shadow-sm rounded-xl">
+        <div class="absolute inset-0 w-full h-full bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col justify-between backface-hidden">
+          <div class="h-28 w-full ${card.color} flex items-center justify-center text-white">
+            <i class="ph-bold ${card.icon} text-5xl"></i>
+          </div>
+          <div class="p-3 flex flex-col justify-between flex-1">
+            <div class="flex items-center justify-between">
+              <span class="text-[9px] font-mono text-slate-400 uppercase">#${idx+1} · Click</span>
+              <button onclick="event.stopPropagation(); audioSpeak('${card.en}')" class="w-6 h-6 rounded-full bg-orange-50 text-orangeAction flex items-center justify-center hover:bg-orangeAction hover:text-white transition-colors cursor-pointer">
+                <i class="ph-bold ph-speaker-high text-xs"></i>
+              </button>
+            </div>
+            <div class="text-center"><h4 class="text-deepBlue font-mono font-bold text-xs">${card.en}</h4></div>
+          </div>
+        </div>
+        <div class="absolute inset-0 w-full h-full bg-deepBlue text-white rounded-xl p-4 flex flex-col justify-between backface-hidden rotate-y-180">
+          <div class="flex items-center justify-between">
+            <span class="text-[9px] font-mono text-orangeAction uppercase">Balanced Lab</span>
+            <span class="text-[9px] font-mono text-slate-400">Do/Does &amp; -s</span>
+          </div>
+          <div class="space-y-1.5 text-left">
+            <p class="text-[11px] text-slate-200 leading-snug"><strong>Meaning:</strong> ${card.def}</p>
+            <p class="text-[11px] text-orange-300 italic leading-snug"><strong>Ex:</strong> "${card.ex}"</p>
+          </div>
+          <div class="text-center"><span class="text-[9px] text-slate-400 italic">Back Side</span></div>
+        </div>
+      </div>
+    `;
+    grid.appendChild(wrapper);
+  });
+}
+document.addEventListener('DOMContentLoaded', renderFlashcards);
+
+function audioSpeak(word) {
+  window.speechSynthesis.cancel();
+  const tts = new SpeechSynthesisUtterance(word);
+  tts.lang = 'en-US';
+  tts.rate = 0.85;
+  window.speechSynthesis.speak(tts);
+}
+
+function playIntroAudio(btn) {
+  window.speechSynthesis.cancel();
+  const text = document.getElementById('intro-audio-text').textContent;
+  const tts = new SpeechSynthesisUtterance(text);
+  tts.lang = 'en-US';
+  tts.rate = 0.85;
+  tts.onstart = () => { btn.innerHTML = '<i class="ph-bold ph-spinner animate-spin text-base"></i> Playing...'; };
+  tts.onend = () => { btn.innerHTML = '<i class="ph-bold ph-speaker-high text-base"></i> Play Audio'; };
+  window.speechSynthesis.speak(tts);
+}
+
+function selectProfileOption(optNum, btn) {
+  document.querySelectorAll('#sec1 button[onclick^="selectProfileOption"]').forEach(b => {
+    b.className = "w-full text-left p-3 rounded-xl border border-slate-200 bg-slate-50 hover:border-orangeAction hover:bg-orange-50/50 text-xs font-medium text-slate-700 transition-all cursor-pointer flex items-center justify-between";
+    b.querySelector('.indicator').textContent = "Select";
+  });
+  btn.className = "w-full text-left p-3 rounded-xl border border-orangeAction bg-orange-50 text-xs font-semibold text-deepBlue transition-all cursor-pointer flex items-center justify-between shadow-sm";
+  btn.querySelector('.indicator').textContent = "✓ Selected";
+  document.getElementById('profile-feedback').classList.remove('hidden');
+}
+
+function markGrammarDrill(qNum, status, btn) {
+  const row = document.getElementById('g-q-' + qNum);
+  const fb = row.querySelector('.feedback');
+  fb.classList.remove('hidden');
+  row.querySelectorAll('button').forEach(b => b.className = "bg-white border px-3 py-1.5 rounded-lg text-slate-700 font-medium text-xs border-slate-200 hover:bg-slate-50 transition-all cursor-pointer");
+
+  if (status === 'correct') {
+    btn.className = "bg-emerald-50 border border-emerald-400 text-emerald-800 font-semibold px-3 py-1.5 rounded-lg text-xs";
+    fb.className = "feedback text-[11px] font-bold text-emerald-600 mt-1";
+    fb.textContent = "✓ Correct! Great job!";
+  } else {
+    btn.className = "bg-rose-50 border border-rose-400 text-rose-800 font-semibold px-3 py-1.5 rounded-lg text-xs";
+    fb.className = "feedback text-[11px] font-bold text-rose-600 mt-1";
+    fb.textContent = "✗ Incorrect. Try again.";
+  }
+}
+
+// SIMULADOR DE DIÁLOGO EQUILIBRADO COM OS 5 CASOS
+const simScenarios = {
+  general: {
+    title: "1. General Habits Simulation (Do/Don't)",
+    prompt: "Do you drink coffee in the morning?",
+    options: [
+      { text: "A) Yes, I do! I drink coffee every morning.", correct: true, fb: "✓ Perfect! Affirmative short answer with 'do'." },
+      { text: "B) Yes, I am. I drinking coffee.", correct: false, fb: "✗ Incorrect. 'Do you' requires 'Yes, I do'." },
+      { text: "C) No, I doesn't drink coffee.", correct: false, fb: "✗ Incorrect. 'I' takes 'don't', not 'doesn't'." }
+    ]
+  },
+  third: {
+    title: "2. Colleague Routine Simulation (Third Person)",
+    prompt: "Does your manager arrive early at the office?",
+    options: [
+      { text: "A) Yes, she usually arrives at 8 AM.", correct: true, fb: "✓ Outstanding! Correct third-person affirmative and auxiliary." },
+      { text: "B) Yes, she usually arrive at 8 AM.", correct: false, fb: "✗ Incorrect. Third person singular affirmative requires 'arrives'." },
+      { text: "C) Yes, she do arrive.", correct: false, fb: "✗ Incorrect. 'She' takes 'does', not 'do'." }
+    ]
+  },
+  location: {
+    title: "3. Office Location Simulation (Where do/does)",
+    prompt: "Where do you and your team work during the week?",
+    options: [
+      { text: "A) We work in an office downtown.", correct: true, fb: "✓ Spot on! Correct plural subject 'we' with base verb 'work'." },
+      { text: "B) We works in an office downtown.", correct: false, fb: "✗ Incorrect. 'We' does not take an '-s'." },
+      { text: "C) We does work in downtown.", correct: false, fb: "✗ Incorrect. 'We' uses 'do', not 'does'." }
+    ]
+  },
+  negative: {
+    title: "4. Weekend Plans Simulation (Don't/Doesn't)",
+    prompt: "Do you work on weekends?",
+    options: [
+      { text: "A) No, I don't work on weekends.", correct: true, fb: "✓ Excellent! Correct negative response for 'I'." },
+      { text: "B) No, I doesn't work on weekends.", correct: false, fb: "✗ Incorrect. 'I' takes 'don't'." },
+      { text: "C) No, I work not.", correct: false, fb: "✗ Incorrect structure. Use 'don't work'." }
+    ]
+  },
+  studies: {
+    title: "5. Language Learning Simulation (Studies -ies)",
+    prompt: "When does your partner study English?",
+    options: [
+      { text: "A) She studies English every Tuesday evening.", correct: true, fb: "✓ Outstanding! Correct third-person spelling change (-ies)." },
+      { text: "B) She study English every Tuesday.", correct: false, fb: "✗ Incorrect. 'She' requires 'studies'." },
+      { text: "C) She studys English.", correct: false, fb: "✗ Incorrect spelling. 'Study' changes to 'studies'." }
+    ]
+  }
+};
+
+function triggerSimScenario(key) {
+  const data = simScenarios[key];
+  document.querySelectorAll('[id^="btn-sim-"]').forEach(b => {
+    b.className = "w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer";
+  });
+  document.getElementById('btn-sim-' + key).className = "w-full text-left bg-orangeAction border border-orangeAction text-white p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all font-semibold shadow-sm cursor-pointer";
+
+  document.getElementById('sim-container').classList.remove('hidden');
+  document.getElementById('sim-title').textContent = data.title;
+  document.getElementById('sim-prompt-text').textContent = data.prompt;
+
+  const box = document.getElementById('sim-options-box');
+  box.innerHTML = '';
+  document.getElementById('sim-feedback').classList.add('hidden');
+
+  data.options.forEach(opt => {
+    let btn = document.createElement('button');
+    btn.className = "w-full text-left p-2.5 bg-slate-50 hover:bg-orange-50 border border-slate-200 rounded-lg text-xs font-medium text-slate-700 transition-all cursor-pointer";
+    btn.textContent = opt.text;
+    btn.onclick = function() {
+      const fb = document.getElementById('sim-feedback');
+      fb.classList.remove('hidden');
+      if (opt.correct) {
+        fb.className = "p-3 rounded-lg font-mono text-[11px] bg-emerald-50 border border-emerald-300 text-emerald-900";
+        fb.textContent = opt.fb;
+      } else {
+        fb.className = "p-3 rounded-lg font-mono text-[11px] bg-rose-50 border border-rose-300 text-rose-900";
+        fb.textContent = opt.fb;
+      }
+    };
+    box.appendChild(btn);
+  });
+}
+
+function playSimAudio() {
+  window.speechSynthesis.cancel();
+  const txt = document.getElementById('sim-prompt-text').textContent;
+  const tts = new SpeechSynthesisUtterance(txt);
+  tts.lang = 'en-US';
+  tts.rate = 0.85;
+  window.speechSynthesis.speak(tts);
+}
+
+function unlockStep5() {
+  const checked = document.getElementById('instr-check').checked;
+  const btn = document.getElementById('btn-to-step5');
+  if (checked) {
+    btn.classList.remove('hidden');
+    btn.classList.add('inline-flex');
+  } else {
+    btn.classList.add('hidden');
+    btn.classList.remove('inline-flex');
+  }
+}
+
+// STEP 5: BLOCKS BUILDER SENTENCES (BALANCED)
+const builderSentences = [
+  {
+    ref: "Onde você trabalha e o que você faz?",
+    correct: ["Where", "do", "you", "work", "and", "what", "do", "you", "do?"],
+    shuffled: ["work", "Where", "do", "you", "and", "what", "do", "you", "do?"]
+  },
+  {
+    ref: "Eu não trabalho aos finais de semana, mas ela trabalha.",
+    correct: ["I", "don't", "work", "on", "weekends,", "but", "she", "works."],
+    shuffled: ["work", "weekends,", "I", "don't", "on", "but", "she", "works."]
+  },
+  {
+    ref: "Onde o seu gerente mora atualmente?",
+    correct: ["Where", "does", "your", "manager", "live", "now?"],
+    shuffled: ["manager", "Where", "live", "does", "now?", "your"]
+  }
+];
+
+let currentBuilderIdx = 0;
+
+function loadBuilderSentence() {
+  const item = builderSentences[currentBuilderIdx];
+  document.getElementById('builder-counter').textContent = `Sentence ${currentBuilderIdx + 1} of ${builderSentences.length}`;
+  document.getElementById('builder-target-ref').textContent = item.ref;
+  
+  const slotZone = document.getElementById('builder-slot-zone');
+  const tilesZone = document.getElementById('builder-tiles-zone');
+  slotZone.innerHTML = '';
+  tilesZone.innerHTML = '';
+  
+  document.getElementById('builder-feedback').classList.add('hidden');
+
+  item.shuffled.forEach((word) => {
+    let tile = document.createElement('button');
+    tile.className = "bg-white hover:bg-orange-50 border border-slate-300 text-deepBlue font-mono text-xs px-3 py-2 rounded-lg shadow-sm transition-all cursor-pointer";
+    tile.textContent = word;
+    tile.onclick = function() {
+      if (tile.parentElement === tilesZone) {
+        slotZone.appendChild(tile);
+      } else {
+        tilesZone.appendChild(tile);
+      }
+    };
+    tilesZone.appendChild(tile);
+  });
+}
+
+function resetCurrentSentence() {
+  loadBuilderSentence();
+}
+
+function checkBuiltSentence() {
+  const slotZone = document.getElementById('builder-slot-zone');
+  const userWords = Array.from(slotZone.children).map(t => t.textContent);
+  const correctWords = builderSentences[currentBuilderIdx].correct;
+  
+  const fb = document.getElementById('builder-feedback');
+  fb.classList.remove('hidden');
+
+  const isMatch = userWords.length === correctWords.length && userWords.every((w, i) => w === correctWords[i]);
+
+  if (isMatch) {
+    fb.className = "p-3 rounded-xl text-xs font-mono bg-emerald-50 border border-emerald-300 text-emerald-900";
+    fb.textContent = "✓ Correct syntax! Perfect balanced sentence assembly.";
+    setTimeout(() => {
+      currentBuilderIdx++;
+      if (currentBuilderIdx < builderSentences.length) {
+        loadBuilderSentence();
+      } else {
+        document.getElementById('builder-counter').textContent = "All Sentences Completed! 🎉";
+        document.getElementById('builder-target-ref').textContent = "Parabéns! Você equilibrou perfeitamente o uso de Do/Don't e Third Person.";
+      }
+    }, 1800);
+  } else {
+    fb.className = "p-3 rounded-xl text-xs font-mono bg-rose-50 border border-rose-300 text-rose-900";
+    fb.textContent = "✗ Not quite right. Check word order and try again.";
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadBuilderSentence);
+
+function goTo(n) {
+  document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+  currentSection = n;
+  document.getElementById('sec' + n).classList.add('active');
+  document.getElementById('progressFill').style.width = (n * 20) + '%';
+  document.getElementById('progressLabel').textContent = 'Step ' + n + ' / 5';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function resetSimulation() {
+  document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+  currentSection = 1;
+  document.getElementById('sec1').classList.add('active');
+  document.getElementById('progressFill').style.width = '20%';
+  document.getElementById('progressLabel').textContent = 'Step 1 / 5';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
+```eof
+
+<FollowUp>
+O código completo está ajustado e com a função `goTo()` 100% corrigida para transicionar suavemente para o Step 2. Pode testar com o aluno!
+</FollowUp>

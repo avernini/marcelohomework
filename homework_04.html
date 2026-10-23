@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MÉTODO FALA – Autonomous Homework Studio: Third Person & Routines</title>
+<!-- Tailwind CSS & Phosphor Icons -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          deepBlue: '#0F172A',
+          bodyLight: '#F8FAFC',
+          orangeAction: '#C2410C',
+          orangeHover: '#EA580C',
+          darkSlate: '#334155',
+          softSand: '#F1F5F9',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
+  body { font-family: 'Inter', sans-serif; }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+  .homework-section { display: none; animation: fadeUp .35s ease; }
+  .homework-section.active { display: block; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body class="bg-deepBlue text-darkSlate min-h-screen text-[17px] antialiased">
+
+<!-- HEADER FALA -->
+<header class="bg-deepBlue sticky top-0 z-50 border-b border-slate-800 shadow-md">
+  <div class="max-w-[900px] mx-auto px-6 py-4 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <div class="flex-shrink-0">
+        <button onclick="resetSimulation()" class="cursor-pointer hover:opacity-90 text-left focus:outline-none transition-opacity" title="Back to start">
+          <span class="text-white font-bold tracking-wider text-lg mono">MÉTODO <span class="text-orangeAction">FALA</span></span>
+          <span class="block text-[10px] text-slate-400 font-mono uppercase tracking-widest">Autonomous Homework Studio</span>
+        </button>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mono" id="progressLabel">Step 1 / 3</span>
+      <div class="w-28 h-2.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700">
+        <div class="h-full bg-orangeAction rounded-full transition-all duration-300" id="progressFill" style="width:33.3%"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN WORKSPACE -->
+<div class="bg-bodyLight w-full min-h-[calc(100vh-69px)] py-8 px-6">
+  <main class="max-w-[900px] mx-auto space-y-8 pb-24">
+
+    <!-- INTRODUÇÃO -->
+    <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-2">
+      <span class="inline-block text-xs font-bold tracking-widest text-orangeAction uppercase bg-orange-50 px-3 py-1 rounded-full border border-orange-100 font-mono">Interactive Homework (3 Steps)</span>
+      <h2 class="text-2xl font-bold text-deepBlue">Autonomous Practice: Third Person Singular &amp; Routines</h2>
+      <p class="text-slate-600 text-sm leading-relaxed">
+        This autonomous homework studio contains 3 steps with 7 exercises each (21 activities total) integrating vocabulary and grammar rules from Unit 1 (The -S Rule) and frequency adverbs.
+      </p>
+    </div>
+
+    <!-- STEP 1: FILL-IN-THE-BLANKS (7 EXERCISES) -->
+    <div class="homework-section active" id="hw-step1">
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-6">
+        <div class="flex items-center justify-between border-b pb-3">
+          <div>
+            <span class="text-xs font-mono font-bold text-orangeAction uppercase">Step 1 of 3</span>
+            <h3 class="text-lg font-bold text-deepBlue">Fill-in-the-Blanks (Type Your Answer)</h3>
+          </div>
+          <span class="text-xs font-mono bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-bold">7 Exercises</span>
+        </div>
+
+        <p class="text-xs text-slate-500">Type the correct verb form or auxiliary (pay attention to third-person <strong>-s</strong> endings, <strong>doesn't</strong>, and <strong>Does</strong>):</p>
+
+        <div class="space-y-4 text-xs sm:text-sm" id="fill-container"></div>
+
+        <div class="flex justify-end pt-4">
+          <button onclick="goToHwStep(2)" class="bg-orangeAction hover:bg-orangeHover text-white font-bold px-7 py-3 rounded-xl flex items-center gap-2 transition-all shadow text-sm cursor-pointer">
+            Next: Tile Assembly (Step 2) <i class="ph-bold ph-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: SENTENCE ARCHITECT / TILES (7 EXERCÍCIOS) -->
+    <div class="homework-section" id="hw-step2">
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-6">
+        <div class="flex items-center justify-between border-b pb-3">
+          <div>
+            <span class="text-xs font-mono font-bold text-orangeAction uppercase">Step 2 of 3</span>
+            <h3 class="text-lg font-bold text-deepBlue">Sentence Architect (Tile Assembly)</h3>
+          </div>
+          <span class="text-xs font-mono bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-bold" id="tile-progress-lbl">Exercise 1 / 7</span>
+        </div>
+
+        <div>
+          <span class="text-xs font-mono text-slate-500 block mb-1">Portuguese Reference:</span>
+          <p id="tile-target-ref" class="text-sm font-semibold text-deepBlue bg-slate-50 p-3 rounded-xl border border-slate-200">
+            Loading reference...
+          </p>
+        </div>
+
+        <div>
+          <span class="text-xs font-mono text-slate-500 block mb-1">Your Built Sentence (Click tiles to assemble):</span>
+          <div id="tile-slot-zone" class="min-h-[60px] p-3 bg-slate-900 rounded-xl border border-slate-800 flex flex-wrap gap-2 items-center"></div>
+        </div>
+
+        <div>
+          <span class="text-xs font-mono text-slate-500 block mb-1">Available Tiles:</span>
+          <div id="tile-tiles-zone" class="min-h-[60px] p-3 bg-slate-100 rounded-xl border border-slate-200 flex flex-wrap gap-2 items-center"></div>
+        </div>
+
+        <div class="flex justify-between items-center pt-2">
+          <button onclick="resetTileExercise()" class="bg-white hover:bg-slate-100 text-deepBlue border border-slate-300 text-xs font-semibold px-4 py-2 rounded-lg transition-all cursor-pointer">
+            Reset Tiles
+          </button>
+          <button onclick="checkTileExercise()" class="bg-orangeAction hover:bg-orangeHover text-white text-xs font-semibold px-6 py-2.5 rounded-lg transition-all shadow cursor-pointer">
+            Check Sentence
+          </button>
+        </div>
+
+        <div id="tile-feedback" class="hidden p-3 rounded-xl text-xs font-mono"></div>
+
+        <!-- FOOTER NAVIGATION BUTTONS -->
+        <div class="flex justify-between items-center pt-4 border-t">
+          <button onclick="goToHwStep(1)" class="bg-white hover:bg-slate-100 text-deepBlue font-bold px-6 py-3 rounded-xl border border-slate-300 text-sm cursor-pointer">
+            <i class="ph-bold ph-arrow-left"></i> Back
+          </button>
+          <div class="flex items-center gap-2">
+            <button onclick="nextTileExercise()" id="next-exercise-btn" class="bg-orangeAction hover:bg-orangeHover text-white font-bold px-6 py-3 rounded-xl text-xs flex items-center gap-2 transition-all shadow cursor-pointer">
+              Next Exercise ➔
+            </button>
+            <button onclick="goToHwStep(3)" id="to-step3-btn" class="bg-orangeAction hover:bg-orangeHover text-white font-bold px-7 py-3 rounded-xl hidden items-center gap-2 transition-all shadow text-sm cursor-pointer">
+              Next: Multiple Choice (Step 3) <i class="ph-bold ph-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: MULTIPLE CHOICE (7 EXERCÍCIOS) -->
+    <div class="homework-section" id="hw-step3">
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-6">
+        <div class="flex items-center justify-between border-b pb-3">
+          <div>
+            <span class="text-xs font-mono font-bold text-orangeAction uppercase">Step 3 of 3</span>
+            <h3 class="text-lg font-bold text-deepBlue">Multiple Choice (Choose the Correct One)</h3>
+          </div>
+          <span class="text-xs font-mono bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-bold">7 Exercises</span>
+        </div>
+
+        <p class="text-xs text-slate-500">Select the correct option to complete each sentence:</p>
+
+        <div class="space-y-4 text-xs sm:text-sm" id="mc-container"></div>
+
+        
+
+        <div class="flex justify-start pt-4">
+          <button onclick="goToHwStep(2)" class="bg-white hover:bg-slate-100 text-deepBlue font-bold px-6 py-3 rounded-xl border border-slate-300 text-sm cursor-pointer">
+            <i class="ph-bold ph-arrow-left"></i> Back
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- SCRIPT LOGIC -->
+<script>
+let currentHwStep = 1;
+
+// --- STEP 1 DATA: FILL IN THE BLANKS (7 EXERCÍCIOS) ---
+const fillData = [
+  { id: 1, prompt: "1. Lucas ______ (work) from home every day.", answer: "works" },
+  { id: 2, prompt: "2. She ______ (start) her workday early in the morning.", answer: "starts" },
+  { id: 3, prompt: "3. My coworker ______ (check) work emails at 8 AM.", answer: "checks" },
+  { id: 4, prompt: "4. Mateus ______ (not / like) heavy traffic.", answer: "doesn't like" },
+  { id: 5, prompt: "5. ______ (Do / Does) your partner work remotely?", answer: "Does" },
+  { id: 6, prompt: "6. He ______ (usually / work) on Friday afternoons.", answer: "usually works" },
+  { id: 7, prompt: "7. My sister ______ (study) English every single day.", answer: "studies" }
+];
+
+function renderFillExercises() {
+  const container = document.getElementById('fill-container');
+  container.innerHTML = '';
+  fillData.forEach(item => {
+    let div = document.createElement('div');
+    div.className = "p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-2";
+    div.innerHTML = `
+      <p class="font-medium text-slate-800">${item.prompt}</p>
+      <div class="flex flex-wrap items-center gap-2">
+        <input type="text" id="fill-in-${item.id}" placeholder="Type answer..." class="bg-white border border-slate-300 text-deepBlue px-3 py-1.5 rounded-lg w-44 font-mono focus:outline-none focus:border-orangeAction">
+        <button onclick="checkFill(${item.id}, '${item.answer}')" class="bg-orangeAction hover:bg-orangeHover text-white px-4 py-1.5 rounded-lg text-xs font-bold cursor-pointer transition-all">Check</button>
+        <span id="fill-fb-${item.id}" class="font-mono text-xs font-bold"></span>
+      </div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+function checkFill(id, correctVal) {
+  const input = document.getElementById('fill-in-' + id);
+  const fb = document.getElementById('fill-fb-' + id);
+  const val = input.value.trim().toLowerCase();
+  fb.classList.remove('hidden');
+  if (val === correctVal.toLowerCase()) {
+    fb.className = "font-mono text-xs font-bold text-emerald-600";
+    fb.textContent = "✓ Correct!";
+  } else {
+    fb.className = "font-mono text-xs font-bold text-rose-600";
+    fb.textContent = "✗ Try again (Expected: " + correctVal + ")";
+  }
+}
+
+// --- STEP 2 DATA: SENTENCE ARCHITECT / TILES (7 EXERCÍCIOS) ---
+const tileExercises = [
+  {
+    ref: "Lucas trabalha em casa todos os dias.",
+    correct: ["Lucas", "works", "from", "home", "every", "day."],
+    shuffled: ["from", "day.", "Lucas", "works", "home", "every"]
+  },
+  {
+    ref: "Mateus não gosta de trânsito pesado.",
+    correct: ["Mateus", "doesn't", "like", "heavy", "traffic."],
+    shuffled: ["like", "traffic.", "Mateus", "doesn't", "heavy"]
+  },
+  {
+    ref: "Ela sempre bebe café de manhã.",
+    correct: ["She", "always", "drinks", "coffee", "in", "the", "morning."],
+    shuffled: ["drinks", "always", "She", "in", "coffee", "morning.", "the"]
+  },
+  {
+    ref: "Seu colega geralmente chega cedo ao escritório.",
+    correct: ["Your", "colleague", "usually", "arrives", "early", "at", "work."],
+    shuffled: ["usually", "Your", "arrives", "early", "colleague", "at", "work."]
+  },
+  {
+    ref: "Onde seu melhor amigo mora atualmente?",
+    correct: ["Where", "does", "your", "best", "friend", "live", "now?"],
+    shuffled: ["friend", "Where", "live", "does", "now?", "your", "best"]
+  },
+  {
+    ref: "Ele gerencia projetos de tecnologia em casa.",
+    correct: ["He", "manages", "tech", "projects", "from", "home."],
+    shuffled: ["projects", "He", "from", "manages", "home.", "tech"]
+  },
+  {
+    ref: "Ela estuda inglês todas as noites.",
+    correct: ["She", "studies", "English", "every", "single", "night."],
+    shuffled: ["English", "studies", "night.", "She", "single", "every"]
+  }
+];
+
+let currentTileIdx = 0;
+
+function loadTileExercise() {
+  const item = tileExercises[currentTileIdx];
+  document.getElementById('tile-progress-lbl').textContent = `Exercise ${currentTileIdx + 1} / ${tileExercises.length}`;
+  document.getElementById('tile-target-ref').textContent = item.ref;
+  
+  const slotZone = document.getElementById('tile-slot-zone');
+  const tilesZone = document.getElementById('tile-tiles-zone');
+  slotZone.innerHTML = '';
+  tilesZone.innerHTML = '';
+  
+  document.getElementById('tile-feedback').classList.add('hidden');
+
+  item.shuffled.forEach((word) => {
+    let tile = document.createElement('button');
+    tile.className = "bg-white hover:bg-orange-50 border border-slate-300 text-deepBlue font-mono text-xs px-3 py-2 rounded-lg shadow-sm transition-all cursor-pointer";
+    tile.textContent = word;
+    tile.onclick = function() {
+      if (tile.parentElement === tilesZone) {
+        slotZone.appendChild(tile);
+      } else {
+        tilesZone.appendChild(tile);
+      }
+    };
+    tilesZone.appendChild(tile);
+  });
+}
+
+function resetTileExercise() {
+  loadTileExercise();
+}
+
+function nextTileExercise() {
+  currentTileIdx++;
+  if (currentTileIdx < tileExercises.length) {
+    loadTileExercise();
+  } else {
+    document.getElementById('tile-progress-lbl').textContent = "All Tiles Completed! 🎉";
+    document.getElementById('tile-target-ref').textContent = "Congratulations! You have completed all tile arrangement exercises.";
+    document.getElementById('next-exercise-btn').classList.add('hidden');
+    document.getElementById('to-step3-btn').classList.remove('hidden');
+    document.getElementById('to-step3-btn').classList.add('inline-flex');
+  }
+}
+
+function checkTileExercise() {
+  const slotZone = document.getElementById('tile-slot-zone');
+  const userWords = Array.from(slotZone.children).map(t => t.textContent);
+  const correctWords = tileExercises[currentTileIdx].correct;
+  
+  const fb = document.getElementById('tile-feedback');
+  fb.classList.remove('hidden');
+
+  const isMatch = userWords.length === correctWords.length && userWords.every((w, i) => w === correctWords[i]);
+
+  if (isMatch) {
+    fb.className = "p-3 rounded-xl text-xs font-mono bg-emerald-50 border border-emerald-300 text-emerald-900";
+    fb.textContent = "✓ Correct syntax! Great job on this sentence.";
+    setTimeout(() => {
+      nextTileExercise();
+    }, 1200);
+  } else {
+    fb.className = "p-3 rounded-xl text-xs font-mono bg-rose-50 border border-rose-300 text-rose-900";
+    fb.textContent = "✗ Not quite right. Check word order and try again.";
+  }
+}
+
+// --- STEP 3 DATA: MULTIPLE CHOICE (7 EXERCÍCIOS) ---
+const mcData = [
+  { id: 1, q: "1. Lucas ______ from home every morning.", opts: ["work", "works"], correct: "works" },
+  { id: 2, q: "2. Mateus ______ like heavy traffic.", opts: ["doesn't", "don't"], correct: "doesn't" },
+  { id: 3, q: "3. ______ your partner work remotely?", opts: ["Does", "Do"], correct: "Does" },
+  { id: 4, q: "4. She ______ drinks coffee; she prefers tea.", opts: ["always", "never"], correct: "never" },
+  { id: 5, q: "5. My colleague ______ emails at 8 AM.", opts: ["check", "checks"], correct: "checks" },
+  { id: 6, q: "6. He ______ commutes downtown by subway.", opts: ["usually", "usual"], correct: "usually" },
+  { id: 7, q: "7. What time ______ your sister wake up?", opts: ["does", "do"], correct: "does" }
+];
+
+function renderMcExercises() {
+  const container = document.getElementById('mc-container');
+  container.innerHTML = '';
+  mcData.forEach(item => {
+    let div = document.createElement('div');
+    div.className = "p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-2";
+    div.id = `mc-box-${item.id}`;
+    
+    let buttonsHtml = item.opts.map(opt => `
+      <button onclick="checkMc(${item.id}, '${opt}', '${item.correct}', this)" class="bg-white border border-slate-300 hover:border-orangeAction px-4 py-2 rounded-lg text-slate-700 font-mono text-xs cursor-pointer transition-all">${opt}</button>
+    `).join('');
+
+    div.innerHTML = `
+      <p class="font-semibold text-slate-800">${item.q}</p>
+      <div class="flex gap-2">${buttonsHtml}</div>
+      <p id="mc-fb-${item.id}" class="font-mono text-xs font-bold hidden"></p>
+    `;
+    container.appendChild(div);
+  });
+}
+
+function checkMc(qId, chosenOpt, correctOpt, btn) {
+  const box = document.getElementById('mc-box-' + qId);
+  const fb = document.getElementById('mc-fb-' + qId);
+  box.querySelectorAll('button').forEach(b => {
+    b.className = "bg-white border border-slate-300 px-4 py-2 rounded-lg text-slate-700 font-mono text-xs cursor-pointer transition-all";
+  });
+  fb.classList.remove('hidden');
+  if (chosenOpt === correctOpt) {
+    btn.className = "bg-emerald-50 border border-emerald-500 px-4 py-2 rounded-lg text-emerald-900 font-mono font-bold text-xs";
+    fb.className = "font-mono text-xs font-bold text-emerald-600";
+    fb.textContent = "✓ Correct! Great job!";
+  } else {
+    btn.className = "bg-rose-50 border border-rose-500 px-4 py-2 rounded-lg text-rose-900 font-mono font-bold text-xs";
+    fb.className = "font-mono text-xs font-bold text-rose-600";
+    fb.textContent = "✗ Incorrect. Try the other option.";
+  }
+}
+
+// HOMEWORK STEP NAVIGATION
+function goToHwStep(stepNum) {
+  document.getElementById('hw-step' + currentHwStep).classList.remove('active');
+  currentHwStep = stepNum;
+  document.getElementById('hw-step' + stepNum).classList.add('active');
+  document.getElementById('progressFill').style.width = (stepNum * 33.3) + '%';
+  document.getElementById('progressLabel').textContent = 'Step ' + stepNum + ' / 3';
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function resetSimulation() {
+  location.reload();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderFillExercises();
+  loadTileExercise();
+  renderMcExercises();
+});
+</script>
+</body>
+</html>
